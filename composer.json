@@ -10,7 +10,6 @@
         "doctrine/dbal": "^2.7",
         "encore/laravel-admin": "1.5.*",
         "fideloper/proxy": "^4.0",
-        "fzaninotto/faker": "^1.8",
         "gregwar/captcha": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
         "hieu-le/active": "^3.5",
@@ -27,14 +26,15 @@
         "socialiteproviders/weixin": "^4.0",
         "spatie/laravel-permission": "^2.12",
         "tymon/jwt-auth": "1.0.0-rc.2",
-        "viacreative/sudo-su": "~1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~3.1",
         "filp/whoops": "^2.0",
+        "fzaninotto/faker": "^1.8",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.0",
+        "viacreative/sudo-su": "~1.1",
         "summerblue/generator": "~0.5"
     },
     "autoload": {
