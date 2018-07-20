@@ -6,5 +6,5 @@
 @endsection
 
 @section('content')
-    @include('pages._index')
+
 @endsection

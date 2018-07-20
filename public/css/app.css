@@ -10421,11 +10421,10 @@ body {
 
 .navbar-static-top {
   border-color: #e7e7e7;
-  background-color: #fff;
-  -webkit-box-shadow: 0 1px 11px 2px rgba(42, 42, 42, 0.1);
-          box-shadow: 0 1px 11px 2px rgba(42, 42, 42, 0.1);
+  background-color: #000;
+  -webkit-box-shadow: 0 7px 5px 2px rgba(42, 42, 42, 0.1);
+          box-shadow: 0 7px 5px 2px rgba(42, 42, 42, 0.1);
   border-top: 4px solid #00b5ad;
-  margin-bottom: 40px;
   margin-top: 0;
 }
 

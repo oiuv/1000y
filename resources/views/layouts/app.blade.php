@@ -23,6 +23,8 @@
 
     @include('layouts._header')
 
+    @yield('card')
+
     <div class="container">
         @include('layouts._message')
         @yield('content')

@@ -23,6 +23,11 @@ class PagesController extends Controller
             return redirect(url(config('admin.route.prefix')), 302);
         }
         // 否则使用视图
-        abort('403','你无权访问，请登录管理员账号～');
+        return abort('403', '你无权访问，请登录管理员账号～');
+    }
+
+    public function download()
+    {
+        return view('pages.download');
     }
 }

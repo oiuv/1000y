@@ -10,7 +10,7 @@
     <div class="card">
         <div class="card-body active-users">
 
-            <div class="text-center">活跃用户</div>
+            <div class="text-center">活跃玩家</div>
             <hr>
             @foreach ($active_users as $active_user)
                 <a class="media my-1" href="{{ route('users.show', $active_user->id) }}">

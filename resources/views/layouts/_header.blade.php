@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light navbar-static-top">
+<nav class="navbar navbar-expand-md navbar-dark navbar-static-top mb-2">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            <img src="{{ asset('img/logo.gif') }}" alt="{{ config('app.name', 'Laravel') }}" class="img-responsive">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +11,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link {{ active_class(if_route('root')) }}"
+                                        href="{{ route('root') }}">首页</a></li>
                 <li class="nav-item"><a class="nav-link {{ active_class(if_route('topics.index')) }}"
                                         href="{{ route('topics.index') }}">话题</a></li>
                 <li class="nav-item"><a
@@ -18,13 +20,15 @@
                             href="{{ route('categories.show', 1) }}">分享</a></li>
                 <li class="nav-item"><a
                             class="nav-link {{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"
-                            href="{{ route('categories.show', 2) }}">教程</a></li>
+                            href="{{ route('categories.show', 2) }}">问答</a></li>
                 <li class="nav-item"><a
                             class="nav-link {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"
-                            href="{{ route('categories.show', 3) }}">问答</a></li>
+                            href="{{ route('categories.show', 3) }}">举报</a></li>
                 <li class="nav-item"><a
                             class="nav-link {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"
                             href="{{ route('categories.show', 4) }}">公告</a></li>
+                <li class="nav-item"><a class="nav-link {{ active_class(if_route('download')) }}"
+                                        href="https://pan.baidu.com/s/1i3ik8Vr#list/path=%2F" target="_blank">下载</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
