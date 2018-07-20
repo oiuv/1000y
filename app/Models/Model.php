@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 
 class Model extends EloquentModel
 {
+    //protected $connection = 'sqlsrv';
+    protected $dateFormat = 'Y-m-d H:i:s';
+
     public function scopeRecent($query)
     {
         return $query->orderBy('id', 'desc');

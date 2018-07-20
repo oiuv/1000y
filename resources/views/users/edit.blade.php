@@ -17,8 +17,8 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="name-field">用户名</label>
-                        <input class="form-control" type="text" name="name" id="name-field" value="{{ old('name', $user->name) }}" />
+                        <label for="name-field">手 机</label>
+                        <input class="form-control" readonly type="number" name="telephone" id="name-field" value="{{ old('telephone', $user->telephone) }}" />
                     </div>
                     <div class="form-group">
                         <label for="email-field">邮 箱</label>

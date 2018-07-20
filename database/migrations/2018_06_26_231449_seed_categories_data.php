@@ -16,19 +16,19 @@ class SeedCategoriesData extends Migration
         $categories = [
             [
                 'name'        => '分享',
-                'description' => '分享创造，分享发现',
-            ],
-            [
-                'name'        => '教程',
-                'description' => '开发技巧、推荐扩展包等',
+                'description' => '分享游戏技巧，分享更多快乐',
             ],
             [
                 'name'        => '问答',
-                'description' => '请保持友善，互帮互助',
+                'description' => '游戏有疑问？来这里互帮互助',
+            ],
+            [
+                'name'        => '举报',
+                'description' => '维护游戏秩序，净化游戏环境',
             ],
             [
                 'name'        => '公告',
-                'description' => '站点公告',
+                'description' => '游戏公告，武林资讯',
             ],
         ];
 

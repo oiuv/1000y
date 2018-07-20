@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
             'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png?imageView2/1/w/200/h/200',
             'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/NDnzMutoxX.png?imageView2/1/w/200/h/200',
         ];
-
+/*
         // 生成数据集合
         $users = factory(User::class)
             ->times(1)
@@ -41,17 +41,17 @@ class UsersTableSeeder extends Seeder
 
         // 插入到数据库中
         User::insert($user_array);
-
+*/
         // 单独处理第一个用户的数据
         $user = User::find(1);
         $user->account = 'Xuefeng';
-        //$user->assignRole('Founder');
+        $user->assignRole('Founder');
         $user->email = 'i@oiuv.cn';
         $user->avatar = 'https://www.gravatar.com/avatar/20823c79de757831969a8d7105e12977?s=200';
         $user->save();
 
         // 将 2 号用户指派为『管理员』
         $user = User::find(2);
-        //$user->assignRole('Maintainer');
+        $user->assignRole('Maintainer');
     }
 }

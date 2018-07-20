@@ -26,7 +26,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'password'       => $password ?: $password = bcrypt('password'),
         'remember_token' => str_random(10),
         'introduction'   => $faker->sentence(),
-        //'makedate'       => $now,
-        //'updated_at'     => $now,
+        'makedate'       => $now,
+        'updated_at'     => $now,
     ];
 });

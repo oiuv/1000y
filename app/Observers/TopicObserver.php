@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Handlers\SlugTranslateHandler;
 use App\Jobs\TranslateSlug;
 use App\Models\Topic;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 // creating, created, updating, updated, saving,
@@ -14,7 +15,9 @@ class TopicObserver
 {
     public function creating(Topic $topic)
     {
-        //
+        if (Auth::id() != 1){
+            return false;
+        }
     }
 
     public function updating(Topic $topic)

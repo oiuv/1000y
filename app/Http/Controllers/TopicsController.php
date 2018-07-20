@@ -32,7 +32,7 @@ class TopicsController extends Controller
     public function show(Request $request, Topic $topic)
     {
         // URL 矫正
-        if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
+        if (!empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
         }
         return view('topics.show', compact('topic'));
@@ -40,7 +40,10 @@ class TopicsController extends Controller
 
     public function create(Topic $topic)
     {
-        $categories = Category::all();
+        if (Auth::id() != 1)
+            $categories = Category::where('id', '<', 4)->get();
+        else
+            $categories = Category::all();
         return view('topics.create_and_edit', compact('topic', 'categories'));
     }
 
@@ -100,9 +103,9 @@ class TopicsController extends Controller
     {
         // 初始化返回数据，默认是失败的
         $data = [
-            'success'   => false,
-            'msg'       => '上传失败!',
-            'file_path' => ''
+            'success' => false,
+            'msg' => '上传失败!',
+            'file_path' => '',
         ];
         // 判断是否有上传文件，并赋值给 $file
         if ($file = $request->upload_file) {
@@ -111,8 +114,8 @@ class TopicsController extends Controller
             // 图片保存成功的话
             if ($result) {
                 $data['file_path'] = $result['path'];
-                $data['msg']       = "上传成功!";
-                $data['success']   = true;
+                $data['msg'] = "上传成功!";
+                $data['success'] = true;
             }
         }
         return $data;

@@ -17,7 +17,7 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                           name="name" value="{{ old('name') }}" required autofocus>
+                                           name="name" value="{{ old('name') }}" required autofocus placeholder="游戏登录账号">
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
@@ -34,7 +34,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" value="{{ old('email') }}" required>
+                                           name="email" value="{{ old('email') }}" required placeholder="找回密码用密保邮箱">
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">

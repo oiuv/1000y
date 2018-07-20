@@ -25,7 +25,7 @@ class TopicRequest extends Request
             default:
             {
                 return [];
-            };
+            }
         }
     }
 

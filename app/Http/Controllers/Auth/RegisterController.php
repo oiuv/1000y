@@ -49,8 +49,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|max:255',
+            'name'     => 'required|between:5,15|regex:/^[A-Za-z0-9\-\_]+$/|unique:sqlsrv.account1000y,account',
+            'email'    => 'required|string|email|max:255|unique:sqlsrv.account1000y',
             'password' => 'required|string|min:6|confirmed',
             'captcha'  => 'required|captcha',
         ], [

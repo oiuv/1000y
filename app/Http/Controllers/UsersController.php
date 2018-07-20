@@ -91,7 +91,7 @@ class UsersController extends Controller
         }
         //dd($request->avatar);
         $data = $request->all();
-
+        //dd($data);
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);
             if ($result) {

@@ -25,7 +25,7 @@
                         </div>
 
                     @else
-                        <div class="empty-block">没有消息通知！</div>
+                        <div class="empty-block">消息通知功能升级中(^-^)</div>
                     @endif
 
                 </div>

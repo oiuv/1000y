@@ -4,6 +4,7 @@ namespace App\Models;
 
 class Reply extends Model
 {
+
     protected $fillable = ['content'];
 
     public function topic()

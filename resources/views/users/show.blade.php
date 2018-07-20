@@ -19,10 +19,10 @@
                             <p>{{ $user->introduction }}</p>
                             <hr>
                             <h4><strong>注册于</strong></h4>
-                            <p>{{ $user->created_at->diffForHumans() }}</p>
+                            <p>{{ $user->makedate }}</p>
                             <hr>
-                            <h4><strong>最后活跃</strong></h4>
-                            <p title="{{  $user->last_actived_at }}">{{ $user->last_actived_at->diffForHumans() }}</p>
+                            <h4><strong>最近游戏</strong></h4>
+                            <p title="{{  $user->lastdate }}">{{ $user->lastdate }}</p>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="card-body">
                 <span>
                     <h1 class="card-title" style="font-size:30px;">{{ $user->name }}
-                        <small>{{ $user->email }}</small></h1>
+                        <small>{{ $user->char1 }}</small></h1>
                 </span>
                 </div>
             </div>

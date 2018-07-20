@@ -22,7 +22,7 @@
             </div>
 
             @include('common.error')
-
+            @if(Auth::user()->char1)
             <div class="card-body">
                 @if($topic->id)
                     <form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
@@ -53,6 +53,11 @@
                         </div>
                     </form>
             </div>
+                @else
+            <div class="m-5 alert bg-dark text-light text-sm-center">
+                你还没登录过游戏，禁止发帖 T_T
+            </div>
+                @endif
         </div>
     </div>
 </div>
