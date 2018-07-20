@@ -22,7 +22,7 @@ return [
      */
     'route' => [
 
-        'prefix' => 'Admin',
+        'prefix' => 'admin',
 
         'namespace' => 'App\\Admin\\Controllers',
 
@@ -68,7 +68,7 @@ return [
      */
     'upload' => [
 
-        'disk' => 'admin',
+        'disk' => 'public',
 
         'directory' => [
             'image' => 'images',
@@ -82,7 +82,7 @@ return [
     'database' => [
 
         // Database connection for following tables.
-        'connection' => '',
+        'connection' => 'mysql',
 
         // User tables and model.
         'users_table' => 'admin_users',

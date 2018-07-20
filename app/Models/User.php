@@ -24,7 +24,6 @@ class User extends Authenticatable implements JWTSubject
     const CREATED_AT = 'makedate';
     protected $guarded = ['char1', 'char2', 'char3', 'char4', 'char5'];
 
-    //public $timestamps = false;
     protected $dateFormat = 'Y-m-d H:i:s';
 
     public function notify($instance)
@@ -42,7 +41,7 @@ class User extends Authenticatable implements JWTSubject
      *
      * @var array
      */
-    //protected $fillable = ['name', 'phone', 'email', 'password', 'introduction', 'avatar', 'weixin_openid', 'weixin_unionid'];
+    //protected $fillable = ['username', 'phone', 'email', 'password', 'introduction', 'avatar'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -114,7 +113,7 @@ class User extends Authenticatable implements JWTSubject
         if (is_null($path)) {
 
             // 拼接完整的 URL
-            $path = "https://www.gravatar.com/avatar/20823c79de757831969a8d7105e12977?s=200";
+            $path = asset('uploads/images/avatars/default.jpg');
         }
 
         return $path;
@@ -137,9 +136,16 @@ class User extends Authenticatable implements JWTSubject
         return $value;
     }
 
+    public function getIntroductionAttribute($value)
+    {
+        if (is_null($value))
+            return '逢敌必亮剑,侠义传千年。';
+        return $value;
+    }
+
     public function getNameAttribute()
     {
-        return $this->char1;
+        return $this->char1 ?? '路人甲';
     }
 
     public function getChar1Attribute($value)

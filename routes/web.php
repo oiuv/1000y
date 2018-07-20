@@ -12,7 +12,7 @@
 */
 
 //$this->get('/', 'PagesController@root')->name('root');
-$this->get('/', 'TopicsController@index')->name('root');
+$this->get('/', 'PagesController@root')->name('root');
 
 //Auth::routes();
 // Authentication Routes...

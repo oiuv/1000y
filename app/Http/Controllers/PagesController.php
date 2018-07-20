@@ -9,13 +9,14 @@ class PagesController extends Controller
 {
     public function root()
     {
-        $app = app();
-        dd($app->getLoadedProviders());
+        //$app = app();
+        //dd($app->getLoadedProviders());
         return view('pages.root');
     }
 
     public function permissionDenied()
     {
+        Auth::guard('admin')->logout();
         // 如果当前用户有权限访问后台，直接跳转访问
         if (Auth::id()) {
             Auth::guard('admin')->loginUsingId(Auth::id());

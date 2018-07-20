@@ -79,7 +79,7 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Models\User $user
+     * @param  \App\Models\User         $user
      * @return \Illuminate\Http\Response
      */
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
@@ -89,16 +89,18 @@ class UsersController extends Controller
         } catch (AuthorizationException $authorizationException) {
             abort(403, '你无权访问本页面 T_T');
         }
-        //dd($request->avatar);
+
         $data = $request->all();
         //dd($data);
+        if (is_null($data['password0']) || is_null($data['password']))
+            $data = array_except($data, ['password']);
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);
             if ($result) {
                 $data['avatar'] = $result['path'];
             }
         }
-
+        $data = array_except($data, ['password0', 'password_confirmation']);
         $user->update($data);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功！');
     }

@@ -49,12 +49,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'     => 'required|between:5,15|regex:/^[A-Za-z0-9\-\_]+$/|unique:sqlsrv.account1000y,account',
-            'email'    => 'required|string|email|max:255|unique:sqlsrv.account1000y',
-            'password' => 'required|string|min:6|confirmed',
-            'captcha'  => 'required|captcha',
+            'name'   => ['required', 'between:5,15', 'regex:/^[A-Za-z0-9\-\_]+$/', 'unique:sqlsrv.account1000y,account'],
+            'email'  => 'required|email|unique:sqlsrv.account1000y',
+            'mobile' => ['required', 'regex:/^1[3-9]\d{9}$/', 'unique:sqlsrv.account1000y,telephone'],
+            'captcha' => 'required|captcha',
         ], [
-            'captcha.captcha' => '请输入正确的验证码',
+            'captcha.captcha' => '验证码 不正确。',
+            'name.regex'      => '用户名 只支持英文和数字。',
         ]);
     }
 
@@ -67,9 +68,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'account'     => $data['name'],
+            'account'   => $data['name'],
+            'telephone' => $data['mobile'],
             'email'    => $data['email'],
-            'password' => $data['password'],
         ]);
     }
 }

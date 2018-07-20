@@ -25,7 +25,7 @@ class CaptchaRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone' => 'required|regex:/^1[3-9]\d{9}$/|unique:users',
+            'phone' => ['required', 'regex:/^1[3-9]\d{9}$', 'unique:users'],
         ];
     }
 }

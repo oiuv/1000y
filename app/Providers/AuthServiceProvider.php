@@ -33,10 +33,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Horizon::auth(function ($request) {
-            if (Auth::user() && Auth::id() == 1)
-                return true;
-            else
-                return false;
+            return Auth::check() && Auth::user()->hasRole('Founder');
         });
     }
 }

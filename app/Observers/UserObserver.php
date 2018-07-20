@@ -11,7 +11,20 @@ class UserObserver
 {
     public function creating(User $user)
     {
-        //
+        $password = str_random(6);
+        if (app()->environment('production')) {
+
+            $easySms = app('easysms');
+
+            $easySms->send($user->telephone, [
+                'template' => 'a02e64017c54430e89e32521fa99b805',
+                'data' => [
+                    $password,
+                ],
+            ]);
+
+        }
+        $user->password = $password;
     }
 
     public function updating(User $user)
@@ -21,9 +34,6 @@ class UserObserver
 
     public function saving(User $user)
     {
-        // 这样写扩展性更高，只有空的时候才指定默认头像
-        if (empty($user->avatar)) {
-            $user->avatar = 'https://fsdhubcdn.phphub.org/uploads/images/201710/30/1/TrJS40Ey5k.png';
-        }
+        //
     }
 }

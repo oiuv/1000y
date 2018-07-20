@@ -17,11 +17,28 @@
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                            class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                           name="name" value="{{ old('name') }}" required autofocus placeholder="游戏登录账号">
+                                           name="name" value="{{ old('name') }}" required autofocus placeholder="游戏登录账号(英文或数字)">
 
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="mobile"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="mobile" type="number"
+                                           class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}"
+                                           name="mobile" value="{{ old('mobile') }}" required placeholder="接收密码用密保手机">
+
+                                    @if ($errors->has('mobile'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('mobile') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -34,7 +51,7 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" value="{{ old('email') }}" required placeholder="找回密码用密保邮箱">
+                                           name="email" value="{{ old('email') }}" required placeholder="找回密码用密保邮箱,接收提醒">
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -44,32 +61,32 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            {{--<div class="form-group row">--}}
+                                {{--<label for="password"--}}
+                                       {{--class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                           class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                           name="password" required>
+                                {{--<div class="col-md-6">--}}
+                                    {{--<input id="password" type="password"--}}
+                                           {{--class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"--}}
+                                           {{--name="password" required>--}}
 
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
+                                    {{--@if ($errors->has('password'))--}}
+                                        {{--<span class="invalid-feedback">--}}
+                                        {{--<strong>{{ $errors->first('password') }}</strong>--}}
+                                    {{--</span>--}}
+                                    {{--@endif--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
-                            <div class="form-group row">
-                                <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            {{--<div class="form-group row">--}}
+                                {{--<label for="password-confirm"--}}
+                                       {{--class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>--}}
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                           name="password_confirmation" required>
-                                </div>
-                            </div>
+                                {{--<div class="col-md-6">--}}
+                                    {{--<input id="password-confirm" type="password" class="form-control"--}}
+                                           {{--name="password_confirmation" required>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
                             <div class="form-group row">
                                 <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('validation.attributes.captcha') }}</label>
