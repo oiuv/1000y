@@ -1,7 +1,0 @@
-#wrapper header {
-	filter: none;
-}
-
-#wrapper header ul#menu > li.menu, #wrapper header ul#menu > li.item {
-	filter: none;
-}

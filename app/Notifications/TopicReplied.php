@@ -47,7 +47,7 @@ class TopicReplied extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->line('你的话题有新回复！')
                     ->action('查看回复', $url)
-                    ->line('Thank you for using our application!');
+                    ->line('武林霸业谈笑中，不胜千年一场醉！');
     }
 
     /**
@@ -73,7 +73,7 @@ class TopicReplied extends Notification implements ShouldQueue
             'reply_id' => $this->reply->id,
             'reply_content' => $this->reply->content,
             'user_id' => $this->reply->user->id,
-            'user_name' => $this->reply->user->char1,
+            'user_name' => $this->reply->user->name,
             'user_avatar' => $this->reply->user->avatar,
             'topic_link' => $link,
             'topic_id' => $topic->id,
