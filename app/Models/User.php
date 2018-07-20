@@ -137,6 +137,11 @@ class User extends Authenticatable implements JWTSubject
         return $value;
     }
 
+    public function getNameAttribute()
+    {
+        return $this->char1;
+    }
+
     public function getChar1Attribute($value)
     {
         if (ends_with($value, ':云端'))

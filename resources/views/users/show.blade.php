@@ -31,9 +31,11 @@
         <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="card-body">
-                <span>
-                    <h1 class="card-title" style="font-size:30px;">{{ $user->name }}
-                        <small>{{ $user->char1 }}</small></h1>
+                <span class="card-title" style="font-size:30px;">{{ $user->name }}
+                        <small>{{ $user->char2 }}</small>
+                        <small>{{ $user->char3 }}</small>
+                        <small>{{ $user->char4 }}</small>
+                        <small>{{ $user->char5 }}</small>
                 </span>
                 </div>
             </div>
