@@ -11,10 +11,10 @@
 |
 */
 
-//$this->get('/', 'PagesController@root')->name('root');
+
 $this->get('/', 'PagesController@root')->name('root');
 
-//Auth::routes();
+// Auth::routes();
 // Authentication Routes...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
@@ -30,7 +30,7 @@ $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 
-//Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 $this->resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 $this->resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
@@ -44,4 +44,6 @@ $this->resource('notifications', 'NotificationsController', ['only' => ['index']
 
 $this->get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
 
-$this->get('download', 'PagesController@download')->name('download');
+// 针对客户端的固定链接
+$this->get('download.html', 'PagesController@download')->name('download');
+$this->get('account.html', 'PagesController@account')->name('account');

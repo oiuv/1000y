@@ -28,6 +28,11 @@ class PagesController extends Controller
 
     public function download()
     {
-        return view('pages.download');
+        return redirect('/topics/3');
+    }
+
+    public function account()
+    {
+        return redirect("users/".Auth::id());
     }
 }
