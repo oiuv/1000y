@@ -31,7 +31,7 @@ class UserRequest extends FormRequest
             'password0' => 'required|exists:sqlsrv.account1000y,password',
             'password' => 'nullable|confirmed|min:6',
             'introduction' => 'max:80',
-            'avatar'       => 'mimes:jpeg,bmp,png,gif|dimensions:min_width=200,min_height=200',
+            'avatar'       => 'mimes:jpeg,bmp,png,gif',
         ];
     }
 
