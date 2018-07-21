@@ -68,7 +68,7 @@
             {{-- 用户回复列表 --}}
             <div class="card topic-reply">
                 <div class="card-body">
-                    @includeWhen(Auth::user()->lastdate && Auth::user()->lastdate != '未登录', 'topics._reply_box', ['topic' => $topic])
+                    @includeWhen(Auth::check() && Auth::user()->lastdate && Auth::user()->lastdate != '未登录', 'topics._reply_box', ['topic' => $topic])
                     @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
                 </div>
             </div>
