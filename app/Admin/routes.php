@@ -11,6 +11,8 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
+    $router->resource('users', UserController::class);
+
     $router->get('auth/login', 'AuthController@getLogin');
     $router->post('auth/login', 'AuthController@postLogin');
 });
