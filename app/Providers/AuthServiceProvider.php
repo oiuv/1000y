@@ -7,7 +7,7 @@ use App\Policies\UserPolicy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Laravel\Horizon\Horizon;
+//use Laravel\Horizon\Horizon;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -32,8 +32,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Horizon::auth(function ($request) {
-            return Auth::check() && Auth::user()->hasRole('Founder');
-        });
+        //Horizon::auth(function ($request) {
+        //    return Auth::check() && Auth::user()->hasRole('Founder');
+        //});
     }
 }

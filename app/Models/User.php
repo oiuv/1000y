@@ -24,7 +24,7 @@ class User extends Authenticatable implements JWTSubject
     const CREATED_AT = 'makedate';
     protected $guarded = ['char1', 'char2', 'char3', 'char4', 'char5'];
 
-    protected $dateFormat = 'Y-m-d H:i:s';
+    //protected $dateFormat = 'Y-m-d H:i:s';
 
     public function notify($instance)
     {

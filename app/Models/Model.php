@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 class Model extends EloquentModel
 {
     //protected $connection = 'sqlsrv';
-    protected $dateFormat = 'Y-m-d H:i:s';
+    //protected $dateFormat = 'Y-m-d H:i:s.u';
 
     public function scopeRecent($query)
     {
@@ -18,5 +18,4 @@ class Model extends EloquentModel
     {
         return $query->orderBy('order', 'desc');
     }
-
 }

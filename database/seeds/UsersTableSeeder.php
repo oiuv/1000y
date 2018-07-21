@@ -44,11 +44,11 @@ class UsersTableSeeder extends Seeder
 */
         // 单独处理第一个用户的数据
         $user = User::find(1);
-        $user->account = 'Xuefeng';
+        //$user->account = 'Xuefeng';
         $user->assignRole('Founder');
-        $user->email = 'i@oiuv.cn';
-        $user->avatar = 'https://www.gravatar.com/avatar/20823c79de757831969a8d7105e12977?s=200';
-        $user->save();
+        //$user->email = 'i@oiuv.cn';
+        //$user->avatar = 'https://www.gravatar.com/avatar/20823c79de757831969a8d7105e12977?s=200';
+        //$user->save();
 
         // 将 2 号用户指派为『管理员』
         $user = User::find(2);
