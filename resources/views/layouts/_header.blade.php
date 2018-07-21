@@ -28,7 +28,7 @@
                             class="nav-link {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"
                             href="{{ route('categories.show', 4) }}">公告</a></li>
                 <li class="nav-item"><a class="nav-link {{ active_class(if_route('download')) }}"
-                                        href="{{ route('download') }}" target="_blank">下载</a></li>
+                                        href="{{ route('download') }}">下载</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
