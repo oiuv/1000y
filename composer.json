@@ -23,6 +23,7 @@
         "overtrue/pinyin": "^3.0",
         "predis/predis": "^1.1",
         "socialiteproviders/weixin": "^4.0",
+        "spatie/eloquent-sortable": "^3.4",
         "spatie/laravel-permission": "^2.12",
         "tymon/jwt-auth": "1.0.0-rc.2"
     },

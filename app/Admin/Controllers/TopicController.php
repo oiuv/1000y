@@ -24,8 +24,8 @@ class TopicController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('网站文章管理');
+            $content->description('');
 
             $content->body($this->grid());
         });
@@ -41,8 +41,8 @@ class TopicController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('网站文章管理');
+            $content->description('');
 
             $content->body($this->form()->edit($id));
         });
@@ -57,8 +57,8 @@ class TopicController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('网站文章管理');
+            $content->description('');
 
             $content->body($this->form());
         });
@@ -75,6 +75,9 @@ class TopicController extends Controller
 
             $grid->id('ID')->sortable();
 
+            $grid->title();
+            $grid->user()->name();
+
             $grid->created_at();
             $grid->updated_at();
         });
@@ -90,6 +93,8 @@ class TopicController extends Controller
         return Admin::form(Topic::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            $form->text('title');
+            $form->editor('body');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

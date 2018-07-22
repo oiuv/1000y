@@ -23,8 +23,8 @@ class UserController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('游戏账户管理');
+            $content->description('');
 
             $content->body($this->grid());
         });
@@ -40,8 +40,8 @@ class UserController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('游戏账户管理');
+            $content->description('谨慎修改');
 
             $content->body($this->form()->edit($id));
         });
@@ -56,8 +56,8 @@ class UserController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('游戏账户管理');
+            $content->description('');
 
             $content->body($this->form());
         });
@@ -74,8 +74,25 @@ class UserController extends Controller
 
             $grid->id('ID')->sortable();
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->account('账号');
+            $grid->telephone();
+            $grid->char1('角色1');
+            $grid->char2('角色2');
+            $grid->char3('角色3');
+            $grid->char4('角色4');
+            $grid->char5('角色5');
+
+            $grid->makedate();
+            $grid->lastdate();
+            //$grid->updated_at();
+
+            $grid->model()->orderBy('id','asc');
+            $grid->disableCreateButton();
+            $grid->disableExport();
+            $grid->actions(function ($actions) {
+                $actions->disableDelete();
+                //$actions->disableEdit();
+            });
         });
     }
 
@@ -89,8 +106,19 @@ class UserController extends Controller
         return Admin::form(Account::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            $form->display('account');
+            $form->display('password');
+            $form->mobile('telephone');
+            $form->email('email');
 
-            $form->display('created_at', 'Created At');
+            $form->text('char1');
+            $form->text('char2');
+            $form->text('char3');
+            $form->text('char4');
+            $form->text('char5');
+
+            $form->display('makedate', 'Created At');
+            $form->display('lastdate', 'Logined At');
             $form->display('updated_at', 'Updated At');
         });
     }
