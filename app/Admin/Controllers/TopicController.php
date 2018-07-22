@@ -80,8 +80,8 @@ class TopicController extends Controller
             });
             $grid->account()->char1('作者');
 
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at('发布时间');
+            $grid->updated_at('更新时间');
 
             $grid->model()->orderBy('id', 'desc');
             $grid->disableCreateButton();

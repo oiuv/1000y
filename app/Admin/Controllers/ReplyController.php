@@ -82,8 +82,9 @@ class ReplyController extends Controller
 </button>";
             });
             $grid->account()->char1('玩家');
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->created_at('回帖时间');
+            //$grid->updated_at();
+
             $grid->model()->orderBy('id', 'desc');
             $grid->disableCreateButton();
             $grid->disableExport();
@@ -98,7 +99,7 @@ class ReplyController extends Controller
 
                 // Add a column filter
                 $filter->like('account.char1', '玩家');
-                $filter->between('created_at', '发布时间')->datetime();
+                $filter->between('created_at', '回帖时间')->datetime();
 
             });
         });
@@ -116,7 +117,7 @@ class ReplyController extends Controller
             $form->display('id', 'ID');
             $form->editor('content');
 
-            $form->display('created_at', 'Created At');
+            //$form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
     }

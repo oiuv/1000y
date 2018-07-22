@@ -23,7 +23,7 @@
                             href="{{ route('categories.show', 2) }}">问答</a></li>
                 <li class="nav-item"><a
                             class="nav-link {{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"
-                            href="{{ route('categories.show', 3) }}">举报</a></li>
+                            href="{{ route('categories.show', 3) }}">反馈</a></li>
                 <li class="nav-item"><a
                             class="nav-link {{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"
                             href="{{ route('categories.show', 4) }}">公告</a></li>
