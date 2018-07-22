@@ -75,10 +75,18 @@ class TopicController extends Controller
             $grid->id('ID')->sortable();
 
             $grid->title();
-            $grid->user()->name();
+            $grid->account()->char1('作者');
 
             $grid->created_at();
             $grid->updated_at();
+
+            $grid->model()->orderBy('id', 'desc');
+            $grid->disableCreateButton();
+            $grid->disableExport();
+            $grid->actions(function ($actions) {
+                $actions->disableDelete();
+                //$actions->disableEdit();
+            });
         });
     }
 
