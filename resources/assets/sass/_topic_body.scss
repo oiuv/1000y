@@ -2,7 +2,6 @@
   font-size: 15px;
   line-height: 1.3;
   overflow: hidden;
-  line-height: 1.6;
   word-wrap: break-word;
   a {
     background: transparent;
@@ -157,18 +156,17 @@
   table,
   pre {
     margin-top: 0;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     line-height: 30px;
   }
   hr {
     border: 2px dashed #F0F4F6;
-    border-bottom: 0px;
+    border-bottom: 0;
     margin: 18px auto;
     width: 50%;
   }
   ul,
   ol {
-    padding-left: 2em;
     padding: 10px 20px 10px 30px;
     color: #7d8688;
   }
@@ -248,11 +246,10 @@
     margin-top: 10px;
   }
   code {
-    background: rgba(90, 87, 87, 0);
     margin: 5px;
     color: #858080;
     border-radius: 4px;
-    background-color: #f9fafa;
+    background: #f9fafa;
     border: 1px solid #e4e4e4;
     max-width: 740px;
     overflow-x: auto;

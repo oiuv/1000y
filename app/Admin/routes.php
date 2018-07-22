@@ -12,6 +12,7 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->resource('users', UserController::class);
+    $router->resource('topics', TopicController::class);
 
     $router->get('auth/login', 'AuthController@getLogin');
     $router->post('auth/login', 'AuthController@postLogin');
