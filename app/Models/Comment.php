@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-class Article extends Topic
+class Comment extends Reply
 {
-    protected $table = 'topics';
+    protected $table = 'replies';
     public $timestamps = false;
 
     public function account()
@@ -12,8 +12,8 @@ class Article extends Topic
         return $this->belongsTo(Account::class, 'user_id');
     }
 
-    public function comments()
+    public function article()
     {
-        return $this->hasMany(Comment::class, 'topic_id');
+        return $this->belongsTo(Article::class, 'topic_id');
     }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Article;
+use App\Models\Comment;
+
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -10,7 +11,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class TopicController extends Controller
+class ReplyController extends Controller
 {
     use ModelForm;
 
@@ -23,7 +24,7 @@ class TopicController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('网站文章管理');
+            $content->header('回帖内容');
             $content->description('');
 
             $content->body($this->grid());
@@ -40,7 +41,7 @@ class TopicController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('网站文章管理');
+            $content->header('回帖内容');
             $content->description('');
 
             $content->body($this->form()->edit($id));
@@ -56,7 +57,7 @@ class TopicController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('网站文章管理');
+            $content->header('回帖内容');
             $content->description('');
 
             $content->body($this->form());
@@ -70,19 +71,19 @@ class TopicController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Article::class, function (Grid $grid) {
+        return Admin::grid(Comment::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
-            $grid->title()->display(function () {
-                $url = url('topics/'.$this->id);
-                return "<a href='$url' target='_blank'>$this->title</a>";
+            $grid->article()->title('文章');
+            $grid->content('内容')->display(function ($value) {
+                return "<button type=\"button\" class=\"btn btn-default btn-sm\" data-toggle=\"tooltip\"
+        title=\"$value\">
+    回帖内容
+</button>";
             });
-            $grid->account()->char1('作者');
-
+            $grid->account()->char1('玩家');
             $grid->created_at();
             $grid->updated_at();
-
             $grid->model()->orderBy('id', 'desc');
             $grid->disableCreateButton();
             $grid->disableExport();
@@ -96,8 +97,7 @@ class TopicController extends Controller
                 $filter->disableIdFilter();
 
                 // Add a column filter
-                $filter->like('title', '标题');
-                $filter->like('account.char1', '作者');
+                $filter->like('account.char1', '玩家');
                 $filter->between('created_at', '发布时间')->datetime();
 
             });
@@ -111,11 +111,10 @@ class TopicController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Article::class, function (Form $form) {
+        return Admin::form(Comment::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->text('title');
-            $form->editor('body');
+            $form->editor('content');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

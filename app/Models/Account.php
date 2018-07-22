@@ -11,6 +11,11 @@ class Account extends User
 
     public function Articles()
     {
-        return $this->hasMany(Article::class,'user_id');
+        return $this->hasMany(Article::class, 'user_id');
+    }
+
+    public function Comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id');
     }
 }

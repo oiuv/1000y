@@ -86,13 +86,34 @@ class UserController extends Controller
             $grid->lastdate();
             //$grid->updated_at();
 
-            $grid->model()->orderBy('id','asc');
+            $grid->model()->orderBy('id', 'asc');
             $grid->disableCreateButton();
             $grid->disableExport();
             $grid->actions(function ($actions) {
                 $actions->disableDelete();
                 //$actions->disableEdit();
             });
+
+            $grid->filter(function ($filter) {
+
+                // Remove the default id filter
+                $filter->disableIdFilter();
+
+                // Add a column filter
+                $filter->like('account', '账号');
+                $filter->like('telephone', '手机');
+                $filter->where(function ($query) {
+
+                    $query->where('char1', 'like', "%{$this->input}%")
+                          ->orWhere('char2', 'like', "%{$this->input}%")
+                          ->orWhere('char3', 'like', "%{$this->input}%")
+                          ->orWhere('char4', 'like', "%{$this->input}%")
+                          ->orWhere('char5', 'like', "%{$this->input}%");
+
+                }, '玩家角色');
+                $filter->between('makedate', '注册时间')->datetime();
+            });
+
         });
     }
 
