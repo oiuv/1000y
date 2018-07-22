@@ -2,8 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Topic;
-
+use App\Models\Article;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
@@ -71,7 +70,7 @@ class TopicController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Topic::class, function (Grid $grid) {
+        return Admin::grid(Article::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
 
@@ -90,7 +89,7 @@ class TopicController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Topic::class, function (Form $form) {
+        return Admin::form(Article::class, function (Form $form) {
 
             $form->display('id', 'ID');
             $form->text('title');
