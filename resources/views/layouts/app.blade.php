@@ -8,9 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', config('app.name', 'Laravel')) - Laravel 进阶教程</title>
-    <meta name="description" content="@yield('description', 'LaraBBS 爱好者社区')"/>
-    <meta name="keyword" content="@yield('keyword', 'LaraBBS,社区,论坛,开发者论坛')"/>
+    <title>@yield('title', config('app.name', 'Laravel')) - 武林霸业谈笑中，不胜千年一场醉</title>
+    <meta name="description" content="@yield('description', '云端千年官方网站，免费公益千年贰神武奇章')"/>
+    <meta name="keyword" content="@yield('keyword', '云端千年,千年贰,公益千年,免费千年')"/>
 
     <!-- Styles -->
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
