@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark navbar-static-top mb-2">
+<nav class="navbar navbar-expand-md navbar-dark navbar-static-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('img/logo.gif') }}" alt="{{ config('app.name', 'Laravel') }}" class="img-responsive">

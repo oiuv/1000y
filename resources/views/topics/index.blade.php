@@ -3,7 +3,7 @@
 @section('title', isset($category) ? $category->name : '话题列表')
 
 @section('content')
-    <div class="row">
+    <div class="row mt-2">
         <div class="col-lg-9 col-md-9 topic-list">
             @if (isset($category))
                 <div class="alert alert-info" role="alert">
