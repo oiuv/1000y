@@ -38,7 +38,7 @@ class PagesController extends Controller
         return redirect("users/".Auth::id());
     }
 
-    public function activeUsers()
+    public function activeUsers($name = null)
     {
         if (Auth::id() == 1) {
             if (app()->isLocal())
@@ -54,7 +54,15 @@ class PagesController extends Controller
             $csv->auto($dir.$file);
             $data = $csv->data;
             echo '<pre>';
-            print_r($data);
+            if ($name)
+                foreach ($data as $user) {
+                    if ($user['PrimaryKey'] == $name) {
+                        print_r($user);
+                    }
+                }
+            else
+                print_r($data);
+
             echo '</pre>';
             //$data = json_encode($data);
         }

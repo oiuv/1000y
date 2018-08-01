@@ -49,4 +49,4 @@ $this->get('download.html', 'PagesController@download')->name('download');
 $this->get('account.html', 'PagesController@account')->name('account');
 
 // 最新玩家数据
-$this->get('active_users', 'PagesController@activeUsers')->name('active-users');
+$this->get('active_users/{name?}', 'PagesController@activeUsers')->name('active-users');
