@@ -44,12 +44,12 @@ class PagesController extends Controller
                 $dir = __DIR__.'/../../../..'; else $dir = 'D:\1000yServer\CN-SW-DB\Userdata';
             $csv = new Csv();
             $csv->encoding('GBK', 'UTF-8');
-            $csv->parse($dir."/UserData2018-07-31.SDB");
+            $csv->parse($dir.'/UserData'.date('Y-m-d').'.SDB');
             $data = $csv->data;
-            //$data = json_encode($data);
             echo '<pre>';
             print_r($data);
             echo '</pre>';
+            //$data = json_encode($data);
         } else {
             return abort('403', '你无权访问，请登录管理员账号～');
         }
