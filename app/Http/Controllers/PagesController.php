@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use ParseCsv\Csv;
 
 class PagesController extends Controller
 {
@@ -34,5 +35,23 @@ class PagesController extends Controller
     public function account()
     {
         return redirect("users/".Auth::id());
+    }
+
+    public function activeUsers()
+    {
+        if (Auth::id() == 1) {
+            if (app()->isLocal())
+                $dir = __DIR__.'/../../../..'; else $dir = 'D:\1000yServer\CN-SW-DB\Userdata';
+            $csv = new Csv();
+            $csv->encoding('GBK', 'UTF-8');
+            $csv->parse($dir."/UserData2018-07-31.SDB");
+            $data = $csv->data;
+            //$data = json_encode($data);
+            echo '<pre>';
+            print_r($data);
+            echo '</pre>';
+        } else {
+            return abort('403', '你无权访问，请登录管理员账号～');
+        }
     }
 }

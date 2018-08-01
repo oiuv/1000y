@@ -47,3 +47,6 @@ $this->get('permission-denied', 'PagesController@permissionDenied')->name('permi
 // 针对客户端的固定链接
 $this->get('download.html', 'PagesController@download')->name('download');
 $this->get('account.html', 'PagesController@account')->name('account');
+
+// 最新玩家数据
+$this->get('active_users', 'PagesController@activeUsers')->name('active-users');
