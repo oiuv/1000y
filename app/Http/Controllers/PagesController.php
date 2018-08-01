@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use ParseCsv\Csv;
@@ -41,16 +42,23 @@ class PagesController extends Controller
     {
         if (Auth::id() == 1) {
             if (app()->isLocal())
-                $dir = __DIR__.'/../../../..'; else $dir = 'D:\1000yServer\CN-SW-DB\Userdata';
+                $dir = __DIR__.'/../../../../';
+            else
+                $dir = 'D:\1000yServer\CN-SW-DB\Userdata\\';
+            if (Carbon::now()->hour > 3)
+                $file = 'UserData'.date('Y-m-d').'.SDB';
+            else
+                $file = 'UserData'.Carbon::yesterday()->format('Y-m-d').'.SDB';
             $csv = new Csv();
             $csv->encoding('GBK', 'UTF-8');
-            $csv->parse($dir.'/UserData'.date('Y-m-d').'.SDB');
+            $csv->auto($dir.$file);
             $data = $csv->data;
             echo '<pre>';
             print_r($data);
             echo '</pre>';
             //$data = json_encode($data);
-        } else {
+        }
+        else {
             return abort('403', '你无权访问，请登录管理员账号～');
         }
     }
