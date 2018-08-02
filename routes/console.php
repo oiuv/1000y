@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Foundation\Inspiring;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,29 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('1000y:user', function () {
+    if (app()->isLocal())
+        $dir = __DIR__.'/../../../../';
+    else
+        $dir = 'D:\1000yServer\CN-SW-DB\Userdata\\';
+    if (Carbon::now()->hour > 3)
+        $file = 'UserData'.date('Y-m-d').'.SDB';
+    else
+        $file = 'UserData'.Carbon::yesterday()->format('Y-m-d').'.SDB';
+    $csv = new \ParseCsv\Csv();
+    $csv->encoding('GBK', 'UTF-8');
+    $csv->auto($dir.$file);
+    $data = $csv->data;
+    $this->info('开始缓存玩家数据！');
+    $bar = $this->output->createProgressBar(count($data));
+    foreach ($data as $user) {
+        $this->performTask($user);
+        Cache::forever('1000yUser:'.$user['PrimaryKey'], json_encode($user));
+        $bar->advance();
+
+    }
+    $bar->finish();
+
+    $this->info('');
+})->describe('缓存今日登录玩家数据');

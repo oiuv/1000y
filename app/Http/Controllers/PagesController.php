@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
@@ -43,18 +44,6 @@ class PagesController extends Controller
     public function activeUsers($name = null)
     {
         if (Auth::id() == 1) {
-            if (app()->isLocal())
-                $dir = __DIR__.'/../../../../';
-            else
-                $dir = 'D:\1000yServer\CN-SW-DB\Userdata\\';
-            if (Carbon::now()->hour > 3)
-                $file = 'UserData'.date('Y-m-d').'.SDB';
-            else
-                $file = 'UserData'.Carbon::yesterday()->format('Y-m-d').'.SDB';
-            $csv = new Csv();
-            $csv->encoding('GBK', 'UTF-8');
-            $csv->auto($dir.$file);
-            $data = $csv->data;
             if ($name) {
                 try {
                     dd(json_decode(cache('1000yUser:'.$name), true));
@@ -64,10 +53,13 @@ class PagesController extends Controller
 
             }
             else {
-                foreach ($data as $user) {
-                    Cache::forever('1000yUser:'.$user['PrimaryKey'], json_encode($user));
+                // Artisan::queue('1000y:user');
+                $exitCode = Artisan::call('1000y:user');
+                if ($exitCode) {
+                    return redirect()->route('root')->with('danger', '玩家数据缓存失败！');
                 }
-                print_r($data);
+                else
+                    return redirect()->route('root')->with('success', '玩家数据缓存成功！');
             }
         }
         else {
