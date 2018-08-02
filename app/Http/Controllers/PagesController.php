@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 use ParseCsv\Csv;
 
 class PagesController extends Controller
@@ -53,18 +55,20 @@ class PagesController extends Controller
             $csv->encoding('GBK', 'UTF-8');
             $csv->auto($dir.$file);
             $data = $csv->data;
-            echo '<pre>';
-            if ($name)
-                foreach ($data as $user) {
-                    if ($user['PrimaryKey'] == $name) {
-                        print_r($user);
-                    }
+            if ($name) {
+                try {
+                    dd(json_decode(cache('1000yUser:'.$name), true));
+                } catch (\Exception $exception) {
+                    echo $exception->getMessage();
                 }
-            else
-                print_r($data);
 
-            echo '</pre>';
-            //$data = json_encode($data);
+            }
+            else {
+                foreach ($data as $user) {
+                    Cache::forever('1000yUser:'.$user['PrimaryKey'], json_encode($user));
+                }
+                print_r($data);
+            }
         }
         else {
             return abort('403', '你无权访问，请登录管理员账号～');
