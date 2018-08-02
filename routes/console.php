@@ -33,14 +33,14 @@ Artisan::command('1000y:user', function () {
     $csv->auto($dir.$file);
     $data = $csv->data;
     $this->info('开始缓存玩家数据！');
-    $bar = $this->output->createProgressBar(count($data));
+    //$bar = $this->output->createProgressBar(count($data));
     foreach ($data as $user) {
-        $this->performTask($user);
+        //$this->performTask($user);
         Cache::forever('1000yUser:'.$user['PrimaryKey'], json_encode($user));
-        $bar->advance();
+        //$bar->advance();
 
     }
-    $bar->finish();
+    //$bar->finish();
 
-    $this->info('');
+    $this->info('玩家数据缓存完成^_^');
 })->describe('缓存今日登录玩家数据');
