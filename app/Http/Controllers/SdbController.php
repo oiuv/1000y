@@ -52,8 +52,7 @@ class SdbController extends Controller
             $x = $id % 5 ?: 5;
             if ($id % 5) {
                 $y = (intval($id / 5) + 1) % 6 ?: 6;
-            }
-            else
+            } else
                 $y = intval($id / 5) % 6 ?: 6;
             if ($id % 30)
 
@@ -68,27 +67,49 @@ class SdbController extends Controller
             }
             return response("{'message':'物品ID不存在','errcode':'404'}");
 
-        }
-        elseif ($name === 'UserData' & Auth::id() == 1) {
-            if ($id === 'Artisan') {
-                // Artisan::queue('1000y:user');
-                $exitCode = Artisan::call('1000y:user');
-                if ($exitCode) {
-                    return redirect()->route('root')->with('danger', '玩家数据缓存失败！');
-                }
-                else
-                    return redirect()->route('root')->with('success', '玩家数据缓存成功！');
+        } elseif ($name === 'UserData' && Auth::check() && Auth::user()->hasRole('Founder')) {
+            try {
+                dd(json_decode(cache('1000yUser:'.$id), true));
+            } catch (\Exception $exception) {
+                echo $exception->getMessage();
             }
-            else {
-                try {
-                    dd(json_decode(cache('1000yUser:'.$id), true));
-                } catch (\Exception $exception) {
-                    echo $exception->getMessage();
-                }
+        } elseif ($name === 'Cache' && Auth::check() && Auth::user()->hasRole('Founder')) {
+            switch ($id) {
+                case 'all':
+                    // Artisan::queue('1000y:cache');
+                    $exitCode = Artisan::call('1000y:cache');
+                    if ($exitCode) {
+                        return redirect()->route('root')->with('danger', '游戏数据缓存失败！');
+                    } else {
+                        return redirect()->route('root')->with('success', '游戏数据缓存成功！');
+                    }
+                case 'users':
+                    $exitCode = Artisan::call('1000y:users');
+                    if ($exitCode) {
+                        return redirect()->route('root')->with('danger', '玩家数据缓存失败！');
+                    } else {
+                        return redirect()->route('root')->with('success', '玩家数据缓存成功！');
+                    }
+                case 'item':
+                    $exitCode = Artisan::call('1000y:init:item');
+                    if ($exitCode) {
+                        return redirect()->route('root')->with('danger', '物品数据缓存失败！');
+                    } else {
+                        return redirect()->route('root')->with('success', '物品数据缓存成功！');
+                    }
+                case 'monster':
+                    $exitCode = Artisan::call('1000y:init:monster');
+                    if ($exitCode) {
+                        return redirect()->route('root')->with('danger', '怪物数据缓存失败！');
+                    } else {
+                        return redirect()->route('root')->with('success', '怪物数据缓存成功！');
+                    }
+                default:
+                    return response("{'message':'无效参数','errcode':'404'}");
             }
         }
 
-        return response("{'message':'数据未找到','errcode':'404'}");
+        return response("{'message':'数据未找到或无权查询','errcode':'404'}");
     }
 
     /**

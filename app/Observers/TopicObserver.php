@@ -15,9 +15,7 @@ class TopicObserver
 {
     public function creating(Topic $topic)
     {
-        if (Auth::id() != 1){
-            return false;
-        }
+        //
     }
 
     public function updating(Topic $topic)

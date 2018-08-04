@@ -40,7 +40,7 @@ class TopicsController extends Controller
 
     public function create(Topic $topic)
     {
-        if (Auth::id() != 1)
+        if (!Auth::user()->hasRole('Founder'))
             $categories = Category::where('id', '<', 4)->get();
         else
             $categories = Category::all();

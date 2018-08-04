@@ -58,16 +58,16 @@ return [
         ],
 
         'pgsql' => [
-            'driver'   => 'pgsql',
-            'host'     => $db_config['host'],
-            'port'     => env('DB_PORT', '5432'),
+            'driver' => 'pgsql',
+            'host' => $db_config['host'],
+            'port' => env('DB_PORT', '5432'),
             'database' => $db_config['database'],
             'username' => $db_config['username'],
             'password' => $db_config['password'],
-            'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
-            'sslmode'  => 'prefer',
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
@@ -118,6 +118,16 @@ return [
             'database' => 0,
         ],
 
+    ],
+
+    'sdb' => [
+        'userdata' => env('P_USER_DATA', '/'),
+        'tgs' => [
+            'guild' => env('P_1000y_TGS', '/').'Guild',
+            'init' => env('P_1000y_TGS', '/').'Init/',
+            'itemlog' => env('P_1000y_TGS', '/').'Itemlog',
+            'setting' => env('P_1000y_TGS', '/').'Setting',
+        ],
     ],
 
 ];
