@@ -19,15 +19,17 @@
             </thead>
             <tbody>
             @foreach($cache as $item)
-                <tr>
-                    <th scope="row">{{$loop->iteration}}</th>
-                    <td>{{$item['ViewName']}}</td>
-                    <td>{{$item['Life']}}</td>
-                    <td>{{$item['Armor']}}</td>
-                    <td>{{$item['Damage']}}</td>
-                    <td>{{$item['FallItem']}}</td>
-                    <td>{{$item['HaveItem']}}</td>
-                </tr>
+                @if($item['ViewName'])
+                    <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$item['ViewName']}}</td>
+                        <td>{{$item['Life']}}</td>
+                        <td>{{$item['Armor']}}</td>
+                        <td>{{$item['Damage']}}</td>
+                        <td>{{$item['FallItem']}}</td>
+                        <td>{{$item['HaveItem']}}</td>
+                    </tr>
+                @endif
             @endforeach
             </tbody>
         </table>

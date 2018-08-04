@@ -12,27 +12,26 @@
                 <th>物品</th>
                 <th>物品名称</th>
                 <th style="width: 30%">物品说明</th>
-                <th>可染色</th>
-                <th>可升级</th>
+                <th>价格</th>
                 <th>合成</th>
             </tr>
             </thead>
             <tbody>
             @foreach($cache as $item)
-                <tr>
-                    <th scope="row">{{$loop->iteration}}</th>
-                    <td>
-                        <img src={{asset('sdb/items/'.$item['Shape'])}} alt="{{$item['ViewName']}}">
-                    </td>
-                    <td>{{$item['ViewName']}}</td>
-                    <td>{!!$item['Desc']!!}</td>
-                    <td>{{$item['boColoring']}}</td>
-                    <td>{{$item['boUpgrade']}}</td>
-                    <td>{{$item['Material']}}</td>
-                </tr>
+                @if($item['Kind'])
+                    <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>
+                            <img src={{asset('sdb/items/'.$item['Shape'])}} alt="{{$item['ViewName']}}">
+                        </td>
+                        <td>{{$item['ViewName']}}</td>
+                        <td>{!!$item['Desc']!!}</td>
+                        <td>{{$item['Price']}}</td>
+                        <td>{{$item['Material']}}</td>
+                    </tr>
+                @endif
             @endforeach
             </tbody>
         </table>
-
     @endif
 @endsection
