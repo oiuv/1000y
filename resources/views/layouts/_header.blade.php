@@ -29,6 +29,9 @@
                             href="{{ route('categories.show', 4) }}">公告</a></li>
                 <li class="nav-item"><a class="nav-link {{ active_class(if_route('download')) }}"
                                         href="{{ route('download') }}">下载</a></li>
+                <li class="nav-item"><a class="nav-link {{ active_class((if_route('sdb.index') && if_route_param('name', 'items'))) }}" href="{{ route('sdb.index','items') }}">物品</a></li>
+                <li class="nav-item"><a class="nav-link {{ active_class((if_route('sdb.index') && if_route_param('name', 'monsters'))) }}" href="{{ route('sdb.index','monsters') }}">怪物</a></li>
+                <li class="nav-item"><a class="nav-link {{ active_class((if_route('sdb.index') && if_route_param('name', 'users'))) }}" href="{{ route('sdb.index','users') }}">玩家</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

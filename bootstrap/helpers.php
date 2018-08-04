@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Collection;
 
 function route_class()
 {
@@ -66,5 +67,19 @@ function get_db_config()
             'username'  => env('DB_USERNAME', 'forge'),
             'password'  => env('DB_PASSWORD', ''),
         ];
+    }
+}
+
+if (!function_exists('array_rsort')) {
+    /**
+     * Sort the array using the given callback.
+     *
+     * @param  array $array
+     * @param  callable $callback
+     * @return array
+     */
+    function array_rsort($array, callable $callback)
+    {
+        return Collection::make($array)->sortByDesc($callback)->all();
     }
 }

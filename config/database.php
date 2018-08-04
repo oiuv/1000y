@@ -121,12 +121,12 @@ return [
     ],
 
     'sdb' => [
-        'userdata' => env('P_USER_DATA', '/'),
+        'userdata' => str_finish(env('P_USER_DATA', '/'), '/'),
         'tgs' => [
-            'guild' => env('P_1000y_TGS', '/').'Guild',
-            'init' => env('P_1000y_TGS', '/').'Init/',
-            'itemlog' => env('P_1000y_TGS', '/').'Itemlog',
-            'setting' => env('P_1000y_TGS', '/').'Setting',
+            'guild' => str_finish(env('P_1000y_TGS', '/'), '/').'Guild/',
+            'init' => str_finish(env('P_1000y_TGS', '/'), '/').'Init/',
+            'itemlog' => str_finish(env('P_1000y_TGS', '/'), '/').'Itemlog/',
+            'setting' => str_finish(env('P_1000y_TGS', '/'), '/').'Setting/',
         ],
     ],
 

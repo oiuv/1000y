@@ -30,15 +30,14 @@ Artisan::command('1000y:users', function () {
     $csv->auto($dir.$file);
     $data = $csv->data;
     $this->info('开始缓存玩家数据(共'.count($data).'人)！');
+    Cache::forever('1000yUsers', json_encode($data));
     //$bar = $this->output->createProgressBar(count($data));
     foreach ($data as $user) {
         //$this->performTask($user);
         Cache::forever('1000yUser:'.$user['PrimaryKey'], json_encode($user));
         //$bar->advance();
-
     }
     //$bar->finish();
-
     $this->info('玩家数据缓存完成^_^');
 })->describe('缓存今日登录玩家数据');
 
@@ -50,6 +49,7 @@ Artisan::command('1000y:init:item', function () {
     $csv->auto($dir.$file);
     $data = $csv->data;
     $this->info('开始缓存游戏物品数据(共'.count($data).'种)！');
+    Cache::forever('1000yItems', json_encode($data));
     //$bar = $this->output->createProgressBar(count($data));
     foreach ($data as $item) {
         //$this->performTask($user);
@@ -57,7 +57,6 @@ Artisan::command('1000y:init:item', function () {
         //$bar->advance();
     }
     //$bar->finish();
-
     $this->info('游戏物品数据缓存完成^_^');
 })->describe('缓存游戏物品数据表item.sdb');
 
@@ -70,6 +69,7 @@ Artisan::command('1000y:init:monster', function () {
     $csv->auto($dir.$file);
     $data = $csv->data;
     $this->info('开始缓存游戏怪物数据(共'.count($data).'种)！');
+    Cache::forever('1000yMonsters', json_encode($data));
     //$bar = $this->output->createProgressBar(count($data));
     foreach ($data as $monster) {
         //$this->performTask($user);
@@ -77,7 +77,6 @@ Artisan::command('1000y:init:monster', function () {
         //$bar->advance();
     }
     //$bar->finish();
-
     $this->info('游戏怪物数据缓存完成^_^');
 })->describe('缓存游戏怪物数据表monster.sdb');
 

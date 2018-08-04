@@ -49,4 +49,5 @@ $this->get('download.html', 'PagesController@download')->name('download');
 $this->get('account.html', 'PagesController@account')->name('account');
 
 // 游戏数据库
-$this->get('sdb/{name}/{id}', 'SdbController@show')->name('sdb');
+$this->get('sdb/{name}', 'SdbController@index')->name('sdb.index');
+$this->get('sdb/{name}/{id}', 'SdbController@show')->name('sdb.show');

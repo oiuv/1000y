@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 use Intervention\Image\Facades\Image;
 
 class SdbController extends Controller
@@ -14,9 +15,27 @@ class SdbController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($name)
     {
-        //
+        if (View::exists('sdb.'.$name)) {
+            try {
+                $cache = cache('1000y'.title_case($name));
+                if (is_null($cache)) {
+                    return view('sdb.'.$name);
+                } else {
+                    $cache = json_decode($cache, true);
+                    // 玩家元气排行榜
+                    if ($name === 'users')
+                        $cache = array_values(array_rsort($cache, function ($value) {
+                            return $value['Energy'];
+                        }));
+                    return view('sdb.'.$name, ['cache' => $cache]);
+                }
+            } catch (\Exception $exception) {
+                return abort(503, $exception->getMessage());
+            }
+        } else
+            return abort(404, '……');
     }
 
     /**
@@ -48,6 +67,7 @@ class SdbController extends Controller
      */
     public function show($name, $id)
     {
+        $pic = $id;
         if ($name === 'items') {
             $x = $id % 5 ?: 5;
             if ($id % 5) {
@@ -55,14 +75,13 @@ class SdbController extends Controller
             } else
                 $y = intval($id / 5) % 6 ?: 6;
             if ($id % 30)
-
                 $id = intval($id / 30) * 30 + 1;
             else
                 $id = intval($id / 30) * 30 - 29;
             if (file_exists(public_path("uploads/images/$name/$id.png"))) {
                 $img = Image::make(public_path("uploads/images/$name/$id.png"));
                 $img->crop(30, 32, 4 + ($x - 1) * 32, 6 + ($y - 1) * 31);
-
+                //$img->save(public_path('uploads/images/items/'.$pic.'.jpg'));
                 return $img->response('jpg');
             }
             return response("{'message':'物品ID不存在','errcode':'404'}");
@@ -70,6 +89,18 @@ class SdbController extends Controller
         } elseif ($name === 'UserData' && Auth::check() && Auth::user()->hasRole('Founder')) {
             try {
                 dd(json_decode(cache('1000yUser:'.$id), true));
+            } catch (\Exception $exception) {
+                echo $exception->getMessage();
+            }
+        } elseif ($name === 'item') {
+            try {
+                dd(json_decode(cache('1000yItem:'.$id), true));
+            } catch (\Exception $exception) {
+                echo $exception->getMessage();
+            }
+        } elseif ($name === 'monster') {
+            try {
+                dd(json_decode(cache('1000yMonster:'.$id), true));
             } catch (\Exception $exception) {
                 echo $exception->getMessage();
             }
