@@ -48,5 +48,5 @@ $this->get('permission-denied', 'PagesController@permissionDenied')->name('permi
 $this->get('download.html', 'PagesController@download')->name('download');
 $this->get('account.html', 'PagesController@account')->name('account');
 
-// 最新玩家数据
-$this->get('active_users/{name?}', 'PagesController@activeUsers')->name('active-users');
+// 游戏数据库
+$this->get('sdb/{name}/{id}', 'SdbController@show')->name('sdb');

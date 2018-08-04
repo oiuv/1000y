@@ -21,7 +21,7 @@ Artisan::command('inspire', function () {
 
 Artisan::command('1000y:user', function () {
     if (app()->isLocal())
-        $dir = __DIR__.'/../../../../';
+        $dir = __DIR__.'/../../';
     else
         $dir = 'D:\1000yServer\CN-SW-DB\Userdata\\';
     if (Carbon::now()->hour > 3)
@@ -32,7 +32,7 @@ Artisan::command('1000y:user', function () {
     $csv->encoding('GBK', 'UTF-8');
     $csv->auto($dir.$file);
     $data = $csv->data;
-    $this->info('开始缓存玩家数据！');
+    $this->info('开始缓存玩家数据(共'.count($data).'人)！');
     //$bar = $this->output->createProgressBar(count($data));
     foreach ($data as $user) {
         //$this->performTask($user);

@@ -2,13 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Redis;
-use ParseCsv\Csv;
 
 class PagesController extends Controller
 {
@@ -41,29 +35,4 @@ class PagesController extends Controller
         return redirect("users/".Auth::id());
     }
 
-    public function activeUsers($name = null)
-    {
-        if (Auth::id() == 1) {
-            if ($name) {
-                try {
-                    dd(json_decode(cache('1000yUser:'.$name), true));
-                } catch (\Exception $exception) {
-                    echo $exception->getMessage();
-                }
-
-            }
-            else {
-                // Artisan::queue('1000y:user');
-                $exitCode = Artisan::call('1000y:user');
-                if ($exitCode) {
-                    return redirect()->route('root')->with('danger', '玩家数据缓存失败！');
-                }
-                else
-                    return redirect()->route('root')->with('success', '玩家数据缓存成功！');
-            }
-        }
-        else {
-            return abort('403', '你无权访问，请登录管理员账号～');
-        }
-    }
 }
