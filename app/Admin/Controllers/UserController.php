@@ -80,31 +80,31 @@ class UserController extends Controller
                 if (str_contains($value, ['封号']))
                     return "<span class='label label-danger'>$value</span>";
                 else
-                    return $value;
+                    return $value ?: '';
             });
             $grid->char2('角色2')->display(function ($value) {
                 if (str_contains($value, ['封号']))
                     return "<span class='label label-danger'>$value</span>";
                 else
-                    return $value;
+                    return $value ?: '';
             });
             $grid->char3('角色3')->display(function ($value) {
                 if (str_contains($value, ['封号']))
                     return "<span class='label label-danger'>$value</span>";
                 else
-                    return $value;
+                    return $value ?: '';
             });
             $grid->char4('角色4')->display(function ($value) {
                 if (str_contains($value, ['封号']))
                     return "<span class='label label-danger'>$value</span>";
                 else
-                    return $value;
+                    return $value ?: '';
             });
             $grid->char5('角色5')->display(function ($value) {
                 if (str_contains($value, ['封号']))
                     return "<span class='label label-danger'>$value</span>";
                 else
-                    return $value;
+                    return $value ?: '';
             });
 
             $grid->makedate();
