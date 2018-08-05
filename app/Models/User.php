@@ -145,7 +145,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function getNameAttribute()
     {
-        return $this->char1 ?? '路人甲';
+        return $this->char1 ?: '路人甲';
     }
 
     public function getChar1Attribute($value)
