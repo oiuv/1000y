@@ -76,11 +76,36 @@ class UserController extends Controller
 
             $grid->account('账号');
             $grid->telephone();
-            $grid->char1('角色1');
-            $grid->char2('角色2');
-            $grid->char3('角色3');
-            $grid->char4('角色4');
-            $grid->char5('角色5');
+            $grid->char1('角色1')->display(function ($value) {
+                if (str_contains($value, ['封号']))
+                    return "<span class='label label-danger'>$value</span>";
+                else
+                    return $value;
+            });
+            $grid->char2('角色2')->display(function ($value) {
+                if (str_contains($value, ['封号']))
+                    return "<span class='label label-danger'>$value</span>";
+                else
+                    return $value;
+            });
+            $grid->char3('角色3')->display(function ($value) {
+                if (str_contains($value, ['封号']))
+                    return "<span class='label label-danger'>$value</span>";
+                else
+                    return $value;
+            });
+            $grid->char4('角色4')->display(function ($value) {
+                if (str_contains($value, ['封号']))
+                    return "<span class='label label-danger'>$value</span>";
+                else
+                    return $value;
+            });
+            $grid->char5('角色5')->display(function ($value) {
+                if (str_contains($value, ['封号']))
+                    return "<span class='label label-danger'>$value</span>";
+                else
+                    return $value;
+            });
 
             $grid->makedate();
             $grid->lastdate();
@@ -105,10 +130,10 @@ class UserController extends Controller
                 $filter->where(function ($query) {
 
                     $query->where('char1', 'like', "%{$this->input}%")
-                          ->orWhere('char2', 'like', "%{$this->input}%")
-                          ->orWhere('char3', 'like', "%{$this->input}%")
-                          ->orWhere('char4', 'like', "%{$this->input}%")
-                          ->orWhere('char5', 'like', "%{$this->input}%");
+                        ->orWhere('char2', 'like', "%{$this->input}%")
+                        ->orWhere('char3', 'like', "%{$this->input}%")
+                        ->orWhere('char4', 'like', "%{$this->input}%")
+                        ->orWhere('char5', 'like', "%{$this->input}%");
 
                 }, '玩家角色');
                 $filter->between('makedate', '注册时间')->datetime();
@@ -130,7 +155,7 @@ class UserController extends Controller
             $form->display('account');
             $form->display('password');
             $form->mobile('telephone');
-            $form->email('email');
+            $form->text('email'); // 不用$form->email()
 
             $form->text('char1');
             $form->text('char2');
