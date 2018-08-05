@@ -3,8 +3,8 @@
 @section('title', '玩家天梯')
 
 @section('content')
-    <button type="button" class="btn btn-success btn-block my-3">云端千年玩家天梯每日排行榜(元气境界榜)</button>
-    @if($cache)
+    <button type="button" class="btn btn-success btn-block my-3" data-toggle="tooltip" data-placement="bottom" title="排行榜每天03:03:03更新">云端千年玩家天梯每日排行榜(元气境界榜)</button>
+    @if(isset($cache))
         <table class="table table-hover">
             <thead>
             <tr>
@@ -67,4 +67,12 @@
     @else
         <div class="alert alert-warning">数据未缓存，无法显示内容，请联系管理员。</div>
     @endif
+@endsection
+
+@section('scripts')
+    <script>
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
 @endsection

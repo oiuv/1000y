@@ -4,7 +4,7 @@
 
 @section('content')
     <button type="button" class="btn btn-info btn-block my-3">云端千年游戏物品大全</button>
-    @if($cache)
+    @if(isset($cache))
         <table class="table table-hover">
             <thead>
             <tr>
@@ -22,7 +22,27 @@
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>
-                            <img src={{asset('sdb/items/'.$item['Shape'])}} alt="{{$item['ViewName']}}">
+                            <img src={{asset('sdb/items/'.$item['Shape'])}} alt="{{$item['ViewName']}}"
+                                 data-toggle="tooltip" data-html="true"
+                                 title="
+<div style='width: 256px;height: 180px;' class='text-left'>
+<div class='py-3 px-4'>
+<img src={{asset('sdb/items/'.$item['Shape'])}}>{{$item['ViewName']}}
+</div>
+<div class='mx-4'>
+<div style='width:140px'>{!!$item['Desc']!!}</div>
+<div>{{$item['AttackSpeed']?'攻击速度：'.$item['AttackSpeed']:''}}</div>
+@if($item['DamageBody']||$item['DamageHead']||$item['DamageArm']||$item['DamageLeg'])
+<div>破坏力：{{$item['DamageBody']?:0}}/{{$item['DamageHead']?:0}}/{{$item['DamageArm']?:0}}/{{$item['DamageLeg']?:0}}</div>
+@endif
+<div>{{$item['Recovery']?'恢复：'.$item['Recovery']:''}} {{$item['Avoid']?'躲闪：'.$item['Avoid']:''}}</div>
+@if($item['ArmorBody']||$item['ArmorHead']||$item['ArmorArm']||$item['ArmorLeg'])
+<div>防御力：{{$item['ArmorBody']?:0}}/{{$item['ArmorHead']?:0}}/{{$item['ArmorArm']?:0}}/{{$item['ArmorLeg']?:0}}</div>
+@endif
+<div class='mt-2'>价格：{{$item['Price']}}钱币</div>
+</div>
+</div>
+">
                         </td>
                         <td>{{$item['ViewName']}}</td>
                         <td>{!!$item['Desc']!!}</td>
@@ -36,4 +56,12 @@
     @else
         <div class="alert alert-warning">数据未缓存，无法显示内容，请联系管理员。</div>
     @endif
+@endsection
+
+@section('scripts')
+    <script>
+        $(function () {
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
 @endsection

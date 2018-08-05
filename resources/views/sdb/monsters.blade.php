@@ -4,7 +4,7 @@
 
 @section('content')
     <button type="button" class="btn btn-warning btn-block my-3">云端千年游戏怪物大全</button>
-    @if($cache)
+    @if(isset($cache))
         <table class="table table-hover">
             <thead>
             <tr>
