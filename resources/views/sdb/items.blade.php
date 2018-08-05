@@ -39,7 +39,7 @@
 @if($item['ArmorBody']||$item['ArmorHead']||$item['ArmorArm']||$item['ArmorLeg'])
 <div>防御力：{{$item['ArmorBody']?:0}}/{{$item['ArmorHead']?:0}}/{{$item['ArmorArm']?:0}}/{{$item['ArmorLeg']?:0}}</div>
 @endif
-<div class='my-3'>价格：{{$item['Price']}}钱币</div>
+<div class='my-3'>价格：{{$item['Price'] ?:0 }}钱币</div>
 </div>
 </div>
 ">
