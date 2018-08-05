@@ -30,6 +30,17 @@ Artisan::command('1000y:users', function () {
     $csv->auto($dir.$file);
     $data = $csv->data;
     $this->info('开始缓存玩家数据(共'.count($data).'人)！');
+//    try {
+//        $cache = cache('1000yUsers');
+//        if (is_null($cache)) {
+//            $cache = [];
+//        } else {
+//            $cache = json_decode($cache, true);
+//        }
+//    } catch (\Exception $exception) {
+//        $cache = [];
+//    }
+//    $data = array_merge($cache, $data);
     Cache::forever('1000yUsers', json_encode($data));
     //$bar = $this->output->createProgressBar(count($data));
     foreach ($data as $user) {

@@ -33,6 +33,7 @@
             @endforeach
             </tbody>
         </table>
-
+    @else
+        <div class="alert alert-warning">数据未缓存，无法显示内容，请联系管理员。</div>
     @endif
 @endsection

@@ -3,7 +3,7 @@
 @section('title', '玩家天梯')
 
 @section('content')
-    <button type="button" class="btn btn-success btn-block my-3">云端千年玩家天梯榜(元气境界榜)</button>
+    <button type="button" class="btn btn-success btn-block my-3">云端千年玩家天梯每日排行榜(元气境界榜)</button>
     @if($cache)
         <table class="table table-hover">
             <thead>
@@ -22,7 +22,7 @@
             </thead>
             <tfoot>
             <tr>
-                <td colspan="10">（仅统计８月１日以后登录过游戏的角色，即将开放金钱、年龄等天梯统计）</td>
+                <td colspan="10">（日榜仅统计昨日登录过游戏的角色，即将开放金钱、年龄等天梯日榜/月榜/总榜统计）</td>
             </tr>
             </tfoot>
             <tbody>
@@ -64,5 +64,7 @@
             @endforeach
             </tbody>
         </table>
+    @else
+        <div class="alert alert-warning">数据未缓存，无法显示内容，请联系管理员。</div>
     @endif
 @endsection
