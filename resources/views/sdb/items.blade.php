@@ -26,10 +26,10 @@
                                  data-toggle="tooltip" data-html="true"
                                  title="
 <div class='text-left'>
-<div class='py-3 px-4'>
+<div class='py-3 px-3'>
 <img src={{asset('sdb/items/'.$item['Shape'])}}>{{$item['ViewName']}}
 </div>
-<div class='mx-4'>
+<div class='mx-3'>
 <div>{!!$item['Desc']!!}</div>
 <div>{{$item['AttackSpeed']?'攻击速度：'.$item['AttackSpeed']:''}}</div>
 @if($item['DamageBody']||$item['DamageHead']||$item['DamageArm']||$item['DamageLeg'])
