@@ -31,25 +31,37 @@
 <div class='text-left'>
 <h5 class='text-success'>随身物品</h5>
 @for($i=0;$i<29;$i++)
-<span>{{str_before($item['HaveItem'.$i],':')}} </span>
+@if(str_before($item['HaveItem'.$i],':'))
+<span>{{str_before($item['HaveItem'.$i],':')}}</span>
+@endif
 @endfor
 @for($i=0;$i<4;$i++)
-<span>{{str_before($item['HaveMaterialItem'.$i],':')}} </span>
+@if(str_before($item['HaveMaterialItem'.$i],':'))
+<span>{{str_before($item['HaveMaterialItem'.$i],':')}}</span>
+@endif
 @endfor
 <h5 class='text-warning'>已学掌法</h5>
 @for($i=0;$i<29;$i++)
-<span>{{str_before($item['HaveMysteryMagic'.$i],':')}} </span>
+@if(str_before($item['HaveMysteryMagic'.$i],':'))
+<span>{{str_before($item['HaveMysteryMagic'.$i],':')}}</span>
+@endif
 @endfor
 <h5 class='text-info'>已学招式</h5>
 @for($i=0;$i<14;$i++)
-<span>{{str_before($item['HaveBestSpecialMagic'.$i],':')}} </span>
+@if(str_before($item['HaveBestSpecialMagic'.$i],':'))
+<span>{{str_before($item['HaveBestSpecialMagic'.$i],':')}}</span>
+@endif
 @endfor
 <h5 class='text-danger'>已学神功</h5>
 @for($i=0;$i<4;$i++)
-<span>{{str_before($item['HaveBestProtectMagic'.$i],':')}} </span>
+@if(str_before($item['HaveBestProtectMagic'.$i],':'))
+<span>{{str_before($item['HaveBestProtectMagic'.$i],':')}}</span>
+@endif
 @endfor
 @for($i=0;$i<4;$i++)
-<span>{{str_before($item['HaveBestAttackMagic'.$i],':')}} </span>
+@if(str_before($item['HaveBestAttackMagic'.$i],':'))
+<span>{{str_before($item['HaveBestAttackMagic'.$i],':')}}</span>
+@endif
 @endfor
 </div>
 ">
