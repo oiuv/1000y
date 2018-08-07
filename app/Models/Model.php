@@ -7,7 +7,13 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 class Model extends EloquentModel
 {
     //protected $connection = 'sqlsrv';
-    //protected $dateFormat = 'Y-m-d H:i:s.u';
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        if (env('APP_URL') === 'https://1000y.test')
+            $this->dateFormat = 'Y-m-d H:i:s';
+    }
 
     public function scopeRecent($query)
     {

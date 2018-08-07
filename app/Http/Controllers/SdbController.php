@@ -17,10 +17,16 @@ class SdbController extends Controller
      */
     public function index($name)
     {
+        if ($name === '1000y:cache') {
+            $exitCode = Artisan::call('1000y:cache');
+            return abort(403, $exitCode ? 'T_T' : '^_^');
+        }
+
         if (View::exists('sdb.'.$name)) {
             try {
                 $cache = cache('1000y'.title_case($name));
                 if (is_null($cache)) {
+                    $exitCode = Artisan::call('1000y:cache');
                     return view('sdb.'.$name);
                 } else {
                     $cache = json_decode($cache, true);
