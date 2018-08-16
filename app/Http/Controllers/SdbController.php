@@ -17,10 +17,6 @@ class SdbController extends Controller
      */
     public function index($name)
     {
-        if ($name === '1000y:cache') {
-            $exitCode = Artisan::call('1000y:cache');
-            return abort(403, $exitCode ? 'T_T' : '^_^');
-        }
 
         if (View::exists('sdb.'.$name)) {
             try {
@@ -85,7 +81,7 @@ class SdbController extends Controller
             else
                 $id = intval($id / 30) * 30 - 29;
             if (file_exists(public_path("uploads/images/$name/$id.png"))) {
-                $img = Image::make(public_path("uploads/images/$name/$id.png"));
+                $img = Image::make(public_path("uploads/images/$name/$id.png"))->resize(167, 204);
                 $img->crop(30, 32, 4 + ($x - 1) * 32, 6 + ($y - 1) * 31);
                 //$img->save(public_path('uploads/images/items/'.$pic.'.jpg'));
                 return $img->response('jpg');
