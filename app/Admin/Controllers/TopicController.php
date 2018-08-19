@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Models\Article;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Show;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
@@ -62,7 +63,26 @@ class TopicController extends Controller
             $content->body($this->form());
         });
     }
+    
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
 
+            $content->header('Detail');
+            $content->description('description');
+
+            $content->body(Admin::show(Article::findOrFail($id), function (Show $show) {
+
+                $show->id();
+                $show->title('标题');
+                $show->body('内容');
+
+                //$show->created_at();
+                //$show->updated_at();
+            }));
+        });
+    }
+    
     /**
      * Make a grid builder.
      *

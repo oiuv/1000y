@@ -6,6 +6,7 @@ use App\Models\Comment;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Show;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
@@ -63,7 +64,26 @@ class ReplyController extends Controller
             $content->body($this->form());
         });
     }
+    
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
 
+            $content->header('Detail');
+            $content->description('description');
+
+            $content->body(Admin::show(Comment::findOrFail($id), function (Show $show) {
+
+                $show->id();
+                $show->article()->title('文章');
+                $show->content('回帖');
+
+                //$show->created_at();
+                //$show->updated_at();
+            }));
+        });
+    }
+    
     /**
      * Make a grid builder.
      *

@@ -87,6 +87,7 @@ class UserController extends Controller
             }));
         });
     }
+    
     /**
      * Make a grid builder.
      *
