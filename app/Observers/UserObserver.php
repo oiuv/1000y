@@ -24,7 +24,8 @@ class UserObserver
                     ],
                 ]);
             } catch (NoGatewayAvailableException $exception){
-                dd($exception->getExceptions());
+                //dd($exception->getExceptions());
+                return false;
             }
         }
         $user->password = $password;

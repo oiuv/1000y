@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Models\Account;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
+use Encore\Admin\Show;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
@@ -62,7 +63,30 @@ class UserController extends Controller
             $content->body($this->form());
         });
     }
+    
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
 
+            $content->header('Detail');
+            $content->description('description');
+
+            $content->body(Admin::show(Account::findOrFail($id), function (Show $show) {
+
+                $show->id();
+                $show->account('账号');
+                $show->password('密码');
+                $show->char1('角色1');
+                $show->char2('角色2');
+                $show->char3('角色3');
+                $show->char4('角色4');
+                $show->char5('角色5');
+
+                //$show->created_at();
+                //$show->updated_at();
+            }));
+        });
+    }
     /**
      * Make a grid builder.
      *
