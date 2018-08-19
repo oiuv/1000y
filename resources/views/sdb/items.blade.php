@@ -14,6 +14,7 @@
                 <th style="width: 30%">物品说明</th>
                 <th>价格</th>
                 <th>合成</th>
+                <th>Kind</th>
             </tr>
             </thead>
             <tbody>
@@ -48,6 +49,7 @@
                         <td>{!!$item['Desc']!!}</td>
                         <td>{{$item['Price']}}</td>
                         <td>{{$item['Material']}}</td>
+                        <td>{{$item['Kind']}}</td>
                     </tr>
                 @endif
             @endforeach
