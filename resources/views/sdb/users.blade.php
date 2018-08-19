@@ -3,7 +3,7 @@
 @section('title', '玩家天梯')
 
 @section('content')
-    <button type="button" class="btn btn-success btn-block my-3" data-toggle="tooltip" data-placement="bottom" title="排行榜每天03:03:03更新">云端千年玩家天梯每日排行榜(元气境界榜)</button>
+    <button type="button" class="btn btn-success btn-block my-3" data-toggle="tooltip" data-placement="bottom" title="排行榜每天06:00更新">云端千年玩家天梯每日排行榜(元气境界榜)</button>
     @if(isset($cache))
         <table class="table table-hover">
             <thead>
