@@ -15,6 +15,7 @@
                 <th>价格</th>
                 <th>合成</th>
                 <th>Kind</th>
+                <th>WS</th>
             </tr>
             </thead>
             <tbody>
@@ -50,6 +51,7 @@
                         <td>{{$item['Price']}}</td>
                         <td>{{$item['Material']}}</td>
                         <td>{{$item['Kind']}}</td>
+                        <td>{{$item['WearShape']}}</td>
                     </tr>
                 @endif
             @endforeach
