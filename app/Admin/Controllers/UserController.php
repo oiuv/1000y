@@ -63,7 +63,7 @@ class UserController extends Controller
             $content->body($this->form());
         });
     }
-    
+
     public function show($id)
     {
         return Admin::content(function (Content $content) use ($id) {
@@ -76,6 +76,7 @@ class UserController extends Controller
                 $show->id();
                 $show->account('账号');
                 $show->password('密码');
+                $show->email();
                 $show->char1('角色1');
                 $show->char2('角色2');
                 $show->char3('角色3');
@@ -87,7 +88,7 @@ class UserController extends Controller
             }));
         });
     }
-    
+
     /**
      * Make a grid builder.
      *
