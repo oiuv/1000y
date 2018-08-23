@@ -98,3 +98,25 @@ Artisan::command('1000y:cache', function () {
     $this->call('1000y:init:monster');
     $this->info('游戏数据缓存完成^_^');
 })->describe('缓存游戏数据');
+
+Artisan::command('1000y:sms {mobile : 玩家手机号码} {password : 玩家账号密码}', function () {
+    $mobile = $this->argument('mobile');
+    $password = $this->argument('password');
+    if ($this->confirm('确定发送短信吗？')) {
+        $easySms = app('easysms');
+        try {
+            $easySms->send($mobile, [
+                'template' => 'a02e64017c54430e89e32521fa99b805',
+                'data' => [
+                    $password,
+                ],
+            ]);
+            $this->info('短信发送成功 ^_^');
+        } catch (\Exception $exception) {
+            //dd($exception->getExceptions());
+            $this->error('出错啦，短信发送未遂 T_T');
+        }
+    } else {
+        $this->comment('恭喜你，又省了一条短信费用 ^_^');
+    }
+})->describe('给指定手机发送密码短信');
