@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
+        "awssat/laravel-visits": "^1.4",
         "dingo/api": "2.0.0-alpha2",
         "doctrine/dbal": "^2.8",
         "encore/laravel-admin": "1.5.*",
