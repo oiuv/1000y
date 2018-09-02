@@ -6,6 +6,24 @@
     </div>
 </div>
 
+@if (count($links))
+    <div class="card">
+        <div class="card-body active-users">
+
+            <div class="text-center">资源推荐</div>
+            <hr>
+            @foreach ($links as $link)
+                <a class="media my-1" href="{{ $link->link }}">
+                    <div class="media-body">
+                        <span class="media-heading">{{ $link->title }}</span>
+                    </div>
+                </a>
+            @endforeach
+
+        </div>
+    </div>
+@endif
+
 @if (count($active_users))
     <div class="card">
         <div class="card-body active-users">
@@ -20,24 +38,6 @@
 
                     <div class="media-body ml-1">
                         <span class="media-heading">{{ $active_user->name }}</span>
-                    </div>
-                </a>
-            @endforeach
-
-        </div>
-    </div>
-@endif
-
-@if (count($links))
-    <div class="card">
-        <div class="card-body active-users">
-
-            <div class="text-center">资源推荐</div>
-            <hr>
-            @foreach ($links as $link)
-                <a class="media my-1" href="{{ $link->link }}">
-                    <div class="media-body">
-                        <span class="media-heading">{{ $link->title }}</span>
                     </div>
                 </a>
             @endforeach

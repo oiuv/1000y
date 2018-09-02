@@ -14,6 +14,7 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('topics', TopicController::class);
     $router->resource('replies', ReplyController::class);
+    $router->resource('links', LinkController::class);
 
     $router->get('auth/login', 'AuthController@getLogin');
     $router->post('auth/login', 'AuthController@postLogin');
