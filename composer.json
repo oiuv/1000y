@@ -20,7 +20,7 @@
         "mews/captcha": "^2.2",
         "mews/purifier": "~2.0",
         "overtrue/easy-sms": "^1.1",
-        "overtrue/laravel-lang": "3.0.8",
+        "overtrue/laravel-lang": "^3.0",
         "overtrue/pinyin": "^3.0",
         "parsecsv/php-parsecsv": "^1.0",
         "predis/predis": "^1.1",
