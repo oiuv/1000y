@@ -15,8 +15,8 @@ class TopicRequest extends Request
             case 'PATCH':
             {
                 return [
-                    'title'       => 'required|min:2',
-                    'body'        => 'required|min:3',
+                    'title'       => 'required|min:5',
+                    'body'        => 'required|min:10',
                     'category_id' => 'required|numeric',
                 ];
             }
@@ -32,8 +32,8 @@ class TopicRequest extends Request
     public function messages()
     {
         return [
-            'title.min' => '标题必须至少两个字符',
-            'body.min' => '文章内容必须至少三个字符',
+            'title.min' => '标题必须至少5个字符',
+            'body.min' => '文章内容必须至少10个字符',
         ];
     }
 }
