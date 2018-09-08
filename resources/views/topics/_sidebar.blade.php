@@ -45,3 +45,15 @@
         </div>
     </div>
 @endif
+
+<div class="card">
+    <div class="card-header text-center">
+        支持云端
+    </div>
+    <img class="card-img-top" src="{{asset("uploads/images/alipay.png")}}" alt="Card image cap">
+    <div class="card-body active-users">
+        <h5 class="card-title">捐助说明</h5>
+        <p class="card-text" style="text-indent: 2em">云端千年游戏免费，如果你有一定的经济能力，也欢迎扫码支持服务器运维，注意：捐助并不会在游戏中获得任何特权，仅有每捐助100元赠送随机宝石1颗感谢。</p>
+        <a href="{{asset("topics/4")}}" class="btn btn-primary">历年捐助名单</a>
+    </div>
+</div>
