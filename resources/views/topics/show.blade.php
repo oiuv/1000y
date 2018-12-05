@@ -41,7 +41,7 @@
                         ⋅
                         {{ $topic->visits()->count() }} 阅读
                     </div>
-
+                    <hr>
                     <div class="topic-body">
                         {!! $topic->body !!}
                     </div>
