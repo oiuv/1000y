@@ -9,7 +9,7 @@
         "awssat/laravel-visits": "^1.4",
         "dingo/api": "2.0.0-alpha2",
         "doctrine/dbal": "^2.8",
-        "encore/laravel-admin": "1.5.*",
+        "encore/laravel-admin": "^1.6",
         "fideloper/proxy": "^4.0",
         "gregwar/captcha": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
