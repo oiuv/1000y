@@ -9,7 +9,7 @@
                 <hr class="m-y-md">
                 <p>请注意：为避免垃圾账号注册游戏账号时密码直接发送到个人手机，收到密码后请登录网站修改密码。另外请所有玩家补充邮箱账号，方便密码找回和接收网站提醒。</p>
                 @guest
-                <p class="lead text-sm-center">
+                <p class="lead text-center">
                     <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">注册账号</a>
                 </p>
                 @endguest

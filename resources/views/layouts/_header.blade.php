@@ -61,7 +61,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="img-responsive rounded-circle mr-1" src="{{ Auth::user()->avatar }}"
                                  height="30px" width="30px">{{ Auth::user()->name }} <span class="caret"></span>
                         </a>
