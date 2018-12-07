@@ -8,9 +8,11 @@
                 <div class="alert alert-success">游戏官方QQ群：2887111</div>
                 <hr class="m-y-md">
                 <p>请注意：为避免垃圾账号注册游戏账号时密码直接发送到个人手机，收到密码后请登录网站修改密码。另外请所有玩家补充邮箱账号，方便密码找回和接收网站提醒。</p>
+                @guest
                 <p class="lead text-sm-center">
                     <a class="btn btn-primary btn-lg" href="{{ route('register') }}" role="button">注册账号</a>
                 </p>
+                @endguest
             </div>
         </div>
         <div class="col-md-12">
