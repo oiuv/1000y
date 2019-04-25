@@ -1,12 +1,12 @@
 # [云端千年](https://1000y.gameivy.com)
 
-云端千年是一个怀旧千年游戏公益服务器，免费娱乐。你也可以使用[云端千年源码](https://github.com/oiuv/1000yTGS)架设自己的游戏服务器。也欢迎直接来云端千年游戏，交流QQ群：`2887111`。
+云端千年是一个怀旧千年游戏公益服务器，免费娱乐，欢迎来云端千年游戏，交流QQ群：`2887111`。你也可以使用[云端千年源码](https://github.com/oiuv/1000yTGS)架设自己的游戏服务器。
 
     本网站源码运行环境为windows服务器mssql数据库。
 
 ## 安装
     git clone git@github.com:oiuv/1000y.git
-    cd 1000y.info
+    cd 1000y
     composer install
     php artisan key:generate
     cp .env.example .env
