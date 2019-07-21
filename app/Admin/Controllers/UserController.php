@@ -134,10 +134,10 @@ class UserController extends Controller
             });
 
             $grid->makedate();
-            $grid->lastdate();
+            $grid->lastdate()->sortable();
             //$grid->updated_at();
 
-            $grid->model()->orderBy('id', 'asc');
+            $grid->model()->orderBy('id', 'desc');
             $grid->disableCreateButton();
             $grid->disableExport();
             $grid->actions(function ($actions) {
