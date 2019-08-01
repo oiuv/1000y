@@ -23,6 +23,7 @@
         "laravel-admin-ext/helpers": "^1.0",
         "laravel-admin-ext/log-viewer": "^1.0",
         "laravel-admin-ext/redis-manager": "^1.0",
+        "laravel-admin-ext/summernote": "^1.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "mews/captcha": "^2.2",

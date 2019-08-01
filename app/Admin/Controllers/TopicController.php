@@ -135,7 +135,7 @@ class TopicController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title');
-            $form->editor('body');
+            $form->summernote('body');
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');

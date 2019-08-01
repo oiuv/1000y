@@ -135,7 +135,7 @@ class ReplyController extends Controller
         return Admin::form(Comment::class, function (Form $form) {
 
             $form->display('id', 'ID');
-            $form->editor('content');
+            $form->summernote('content');
 
             //$form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
