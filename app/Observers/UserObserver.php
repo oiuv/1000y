@@ -18,9 +18,9 @@ class UserObserver
             $easySms = app('easysms');
             try {
                 $easySms->send($user->telephone, [
-                    'template' => 'a02e64017c54430e89e32521fa99b805',
+                    'template' => 'SMS_144942084',
                     'data' => [
-                        $password,
+                        'password' => $password,
                     ],
                 ]);
             } catch (NoGatewayAvailableException $exception){

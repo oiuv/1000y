@@ -106,14 +106,14 @@ Artisan::command('1000y:sms {mobile : 玩家手机号码} {password : 玩家账�
         $easySms = app('easysms');
         try {
             $easySms->send($mobile, [
-                'template' => 'a02e64017c54430e89e32521fa99b805',
+                'template' => 'SMS_144942084',
                 'data' => [
-                    $password,
+                    'password' => $password,
                 ],
             ]);
             $this->info('短信发送成功 ^_^');
         } catch (\Exception $exception) {
-            //dd($exception->getExceptions());
+            // dd($exception->getExceptions());
             $this->error('出错啦，短信发送未遂 T_T');
         }
     } else {

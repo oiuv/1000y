@@ -11,7 +11,7 @@ return [
 
         // 默认可用的发送网关
         'gateways' => [
-            'avatardata',
+            'aliyun',
         ],
     ],
     // 可用的网关配置
@@ -19,8 +19,10 @@ return [
         'errorlog' => [
             'file' => '/tmp/easy-sms.log',
         ],
-        'avatardata' => [
-            'app_key' => env('SMS_API_KEY'),
+        'aliyun' => [
+            'access_key_id' => env('SMS_access_key_id'),
+            'access_key_secret' => env('SMS_access_key_secret'),
+            'sign_name' => env('SMS_sign_name'),
         ],
     ],
 ];
