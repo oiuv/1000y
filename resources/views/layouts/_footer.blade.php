@@ -10,5 +10,3 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="https://tajs.qq.com/stats?sId=26256228" charset="UTF-8"></script>
-
