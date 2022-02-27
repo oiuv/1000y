@@ -81,6 +81,17 @@ return [
             'prefix' => '',
         ],
 
+        'sqlsrv_yh' => [
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST_YH', 'localhost'),
+            'port' => env('DB_PORT_1000y', '1433'),
+            'database' => env('DB_DATABASE_1000y', 'forge'),
+            'username' => env('DB_USERNAME_1000y', 'forge'),
+            'password' => env('DB_PASSWORD_1000y', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+        ],
+
     ],
 
     /*
