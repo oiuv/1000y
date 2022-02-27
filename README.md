@@ -2,7 +2,7 @@
 
 云端千年是一个怀旧千年游戏公益服务器，免费娱乐，欢迎来云端千年游戏，交流QQ群：`2887111`。你也可以使用[云端千年源码](https://github.com/oiuv/1000yTGS)架设自己的游戏服务器。
 
-    本网站源码运行环境为windows服务器mssql数据库。
+    本网站源码运行环境为windows服务器mssql数据库,PHP版本建议:v7.2.
 
 ## 安装
     git clone git@github.com:oiuv/1000y.git

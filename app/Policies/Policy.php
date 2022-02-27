@@ -15,7 +15,7 @@ class Policy
 
     public function before($user, $ability)
     {
-        if ($user->can('manage_contents')) {
+        if ($user->id == 1) {
             return true;
         } else
             return null;

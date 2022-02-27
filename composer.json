@@ -12,7 +12,7 @@
         "awssat/laravel-visits": "^1.4",
         "dingo/api": "^2.2",
         "doctrine/dbal": "^2.8",
-        "encore/laravel-admin": "^1.6",
+        "encore/laravel-admin": "1.*",
         "fideloper/proxy": "^4.0",
         "gregwar/captcha": "^1.1",
         "guzzlehttp/guzzle": "^6.3",
@@ -87,7 +87,8 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "allow-plugins": {
-            "ocramius/package-versions": true
+            "ocramius/package-versions": true,
+            "composer/package-versions-deprecated": true
         }
     },
     "minimum-stability": "dev",

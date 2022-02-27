@@ -67,11 +67,11 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            @can('manage_contents')
+                            <!-- @can('manage_contents')
                                 <a class="dropdown-item" href="{{ route('permission-denied') }}">
                                     <i class="fa fa-dashboard fa-fw" aria-hidden="true"></i>管理后台
                                 </a>
-                            @endcan
+                            @endcan -->
                             <a class="dropdown-item" href="{{ route('users.show', Auth::id()) }}"><i class="fa fa-user fa-fw"
                                                                                                      aria-hidden="true"></i>个人中心</a>
                             <a class="dropdown-item" href="{{ route('users.edit', Auth::id()) }}"><i
