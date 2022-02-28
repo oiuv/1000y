@@ -17,4 +17,11 @@ class YhUser extends Model
         $this->attributes['makedate'] = substr($value, 0, 19);
     }
 
+    public function getLastdateAttribute($value)
+    {
+        if (is_null($value))
+            return '未登录';
+        return $value;
+    }
+
 }
