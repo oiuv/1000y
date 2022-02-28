@@ -6,7 +6,7 @@
                         style="color: #e27575;font-size: 14px;">❤</span>
             </div>
 
-            <div class="col-5 text-right"><a href="mailto:{{ env('MAIL_FROM_ADDRESS') }}">联系我们</a></div>
+            <div class="col-5 text-right"><a href="http://beian.miit.gov.cn" target="_blank">京ICP备13031296号-2</a></div>
         </div>
     </div>
 </footer>
