@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Handlers\ImageUploadHandler;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use App\Models\YhUser;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 
@@ -94,6 +95,12 @@ class UsersController extends Controller
         //dd($data);
         if (is_null($data['password0']) || is_null($data['password']))
             $data = array_except($data, ['password']);
+        else {
+            // 同步更新炎黄密码
+            YhUser::where('email', $user->email)->update([
+                'password' => $data['password'],
+            ]);
+        }
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);
             if ($result) {
