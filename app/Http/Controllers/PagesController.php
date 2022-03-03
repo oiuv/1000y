@@ -33,7 +33,10 @@ class PagesController extends Controller
 
     public function account()
     {
-        return redirect("users/".Auth::id());
+        if (Auth::check()) {
+            return redirect("users/" . Auth::id());
+        }
+        return redirect('login');
     }
 
 }
