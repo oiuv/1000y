@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/download.html'; // 转到下载
 
     /**
      * Create a new controller instance.
