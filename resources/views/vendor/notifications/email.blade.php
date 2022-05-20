@@ -48,17 +48,4 @@
 ----{{ config('app.name') }}（QQ群：2887111）
 @endif
 
-{{-- Subcopy --}}
-@isset($actionText)
-@component('mail::subcopy')
-@lang(
-    "如果你无法点击 \":actionText\" 按钮, 复制下面的网址到你的浏览器中打开：".
-    '[:actionURL](:actionURL)',
-    [
-        'actionText' => $actionText,
-        'actionURL' => $actionUrl
-    ]
-)
-@endcomponent
-@endisset
 @endcomponent
