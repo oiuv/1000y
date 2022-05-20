@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\User;
+use App\Notifications\UserRegistered;
 use Overtrue\EasySms\Exceptions\NoGatewayAvailableException;
 
 // creating, created, updating, updated, saving,
@@ -12,6 +13,8 @@ class UserObserver
 {
     public function creating(User $user)
     {
+        logger('新用户注册=>', $user->toArray());
+        $user->notify(new UserRegistered($user));
         // 发送短信
         if (app()->environment('production')) {
             $easySms = app('easysms');
