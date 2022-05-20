@@ -46,7 +46,9 @@ class UserRegistered extends Notification
             ->subject(config('app.name') . '游戏账号注册成功通知!')
             ->greeting('您好!')
             ->line('您的游戏账号注册成功，祝游戏快乐💕')
-            ->line("> 游戏账号：{$this->user->account}，初始密码：<见手机短信>，密保手机：{$this->user->telephone}")
+            ->line("> 游戏账号：{$this->user->account}")
+            ->line("> 密保手机：{$this->user->telephone}")
+            ->line("> 初始密码：<见手机短信>")
             ->action(config('app.name'), url('/'))
             ->line('武林霸业谈笑中，不胜千年一场醉！');
     }
