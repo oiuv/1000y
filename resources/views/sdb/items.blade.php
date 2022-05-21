@@ -3,7 +3,7 @@
 @section('title', '游戏物品大全')
 
 @section('content')
-    <button type="button" class="btn btn-info btn-block my-3">云端千年游戏物品大全</button>
+    <button type="button" class="btn btn-info btn-block my-3">{{config('app.name', '云端千年')}}游戏物品大全</button>
     @if(isset($cache))
         <table class="table table-hover">
             <thead>
@@ -20,7 +20,7 @@
             </thead>
             <tbody>
             @foreach($cache as $item)
-                @if($item['Kind'])
+                @if(count($item) > 70 && $item['Kind'])
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>

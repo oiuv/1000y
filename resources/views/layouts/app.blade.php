@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', config('app.name', 'Laravel')) - 武林霸业谈笑中，不胜千年一场醉</title>
+    <title>@yield('title', config('app.name', '云端千年')) - 武林霸业谈笑中，不胜千年一场醉</title>
     <meta name="description" content="@yield('description', '云端千年官方网站，免费公益千年贰神武奇章')"/>
     <meta name="keyword" content="@yield('keyword', '云端千年,千年贰,公益千年,免费千年')"/>
 

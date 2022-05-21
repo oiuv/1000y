@@ -9,20 +9,63 @@
 演示地址：https://1000y.gameivy.com/
 
 ## 安装
+
+注意，网站支持windows/linux/macos环境，但如果不是在windows环境下，无法使用玩家数据排行功能。
+
     git clone git@github.com:oiuv/1000y.git
     cd 1000y
     composer install
-    php artisan key:generate
     cp .env.example .env
+    php artisan key:generate
 
-你可以根据情况修改 .env 文件里的内容，如数据库连接、缓存、邮件设置等。
+你可以根据情况修改 .env 文件里的内容，如SQLSVR数据库连接、Redis缓存、短信发送接口、邮件发送设置等（相关配置对非专业人员来说相对复杂）。
 
 玩家登录数据库为windows服务器[SQL Server](https://www.microsoft.com/zh-cn/sql-server/sql-server-downloads)数据库，请根据游戏数据库说明配置，默认数据表为`account1000y`。
+
+> 玩家账号数据库字段参考：
+
+```sql
+CREATE TABLE "account1000y" (
+	"id" INT identity(1,1) PRIMARY KEY,
+
+	"account" VARCHAR(20) NOT NULL,
+	"password" VARCHAR(20) NOT NULL,
+	"char1" VARCHAR(50) NULL DEFAULT NULL,
+	"char2" VARCHAR(50) NULL DEFAULT NULL,
+	"char3" VARCHAR(50) NULL DEFAULT NULL,
+	"char4" VARCHAR(50) NULL DEFAULT NULL,
+	"char5" VARCHAR(50) NULL DEFAULT NULL,
+	"ipaddr" VARCHAR(20) NULL DEFAULT NULL,
+	"username" VARCHAR(20) NULL DEFAULT NULL,
+	"birth" VARCHAR(20) NULL DEFAULT NULL,
+	"telephone" VARCHAR(20) NULL DEFAULT NULL,
+	"makedate" VARCHAR(50) NULL DEFAULT NULL,
+	"lastdate" VARCHAR(50) NULL DEFAULT NULL,
+	"address" VARCHAR(50) NULL DEFAULT NULL,
+	"email" VARCHAR(50) NULL DEFAULT NULL,
+	"nativenumber" VARCHAR(20) NULL DEFAULT NULL,
+	"masterkey" VARCHAR(20) NULL DEFAULT NULL,
+	"ptname" VARCHAR(20) NULL DEFAULT NULL,
+	"ptnativenumber" VARCHAR(20) NULL DEFAULT NULL,
+
+	"avatar" VARCHAR(max) NULL DEFAULT NULL,
+	"introduction" VARCHAR(max) NULL DEFAULT NULL,
+	"notification_count" INT NULL DEFAULT NULL,
+	"remember_token" VARCHAR(max) NULL DEFAULT NULL,
+	"updated_at" DATETIME NULL DEFAULT NULL
+);
+```
 
 > 注意：php需打开[php_pdo_sqlsvr](https://docs.microsoft.com/zh-cn/sql/connect/php/download-drivers-php-sql-server?view=sql-server-2016)扩展
 
 ## 数据库迁移
+
     php artisan migrate --seed
 
 ##  游戏数据缓存
+
     php artisan 1000y:cache
+
+## 提示
+
+因为源码主要是为云端千年服务，其它千年用来建站需要微调代码，如果你使用本站代码架设遇到困难，可付费申请技术支持（QQ：7300637）。
