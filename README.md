@@ -48,23 +48,43 @@ CREATE TABLE "account1000y" (
 	"ptname" VARCHAR(20) NULL DEFAULT NULL,
 	"ptnativenumber" VARCHAR(20) NULL DEFAULT NULL,
 
-	"avatar" VARCHAR(max) NULL DEFAULT NULL,
-	"introduction" VARCHAR(max) NULL DEFAULT NULL,
+	"avatar" VARCHAR(255) NULL DEFAULT NULL,
+	"introduction" VARCHAR(255) NULL DEFAULT NULL,
 	"notification_count" INT NULL DEFAULT NULL,
-	"remember_token" VARCHAR(max) NULL DEFAULT NULL,
+	"remember_token" VARCHAR(255) NULL DEFAULT NULL,
 	"updated_at" DATETIME NULL DEFAULT NULL
 );
+```
+
+或者在现有数据库中执行以下SQL语句（推荐）：
+
+```sql
+ALTER TABLE
+    [1000y].[dbo].[account1000y]
+ADD
+    "id" INT identity(1, 1),
+    "avatar" VARCHAR(255) NULL DEFAULT NULL,
+    "introduction" VARCHAR(255) NULL DEFAULT NULL,
+    "remember_token" VARCHAR(255) NULL DEFAULT NULL,
+    "notification_count" INT NULL DEFAULT NULL,
+    "updated_at" DATETIME NULL DEFAULT NULL
 ```
 
 > 注意：php需打开[php_pdo_sqlsvr](https://docs.microsoft.com/zh-cn/sql/connect/php/download-drivers-php-sql-server?view=sql-server-2016)扩展
 
 ## 数据库迁移
 
+.env数据库相关配置完成后，运行以下指令创建网站数据表：
+
     php artisan migrate --seed
 
 ##  游戏数据缓存
 
+.env中配置`P_1000y_TGS`到你游戏TGS目录，配置`P_USER_DATA`到玩家存档目录(数据库程序目录下的Userdata目录)，运行以下指令缓存相关数据：
+
     php artisan 1000y:cache
+
+当数据缓存后网站即可显示内容，但玩家数据是每天更新的，如需自动更新网站排行榜，可在服务器配置一个计划任务在每天凌晨3:00以后自动执行缓存指令。
 
 ## 提示
 
