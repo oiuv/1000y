@@ -52,4 +52,5 @@ Route::get('account.html', 'PagesController@account')->name('account');
 
 // 游戏数据库
 Route::get('sdb/{name}', 'SdbController@index')->name('sdb.index');
+Route::get('img/{name}/{id}.jpg', 'SdbController@show')->name('item.jpg');
 Route::get('sdb/{name}/{id}', 'SdbController@show')->name('sdb.show');

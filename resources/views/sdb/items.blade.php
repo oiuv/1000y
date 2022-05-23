@@ -24,7 +24,7 @@
                     <tr>
                         <th scope="row">{{$loop->iteration}}</th>
                         <td>
-                            <img src={{asset('sdb/items/'.$item['Shape'])}} alt="{{$item['ViewName']}}"
+                            <img src={{asset('img/items/'.$item['Shape'].'.jpg')}} alt="{{$item['ViewName']}}"
                                  data-toggle="tooltip" data-html="true"
                                  title="
 <div class='text-left'>
