@@ -83,7 +83,7 @@ class SdbController extends Controller
             if (file_exists(public_path("uploads/images/$name/$id.png"))) {
                 $img = Image::make(public_path("uploads/images/$name/$id.png"))->resize(167, 204);
                 $img->crop(30, 32, 4 + ($x - 1) * 32, 6 + ($y - 1) * 31);
-                //$img->save(public_path('uploads/images/items/'.$pic.'.jpg'));
+                $img->save(public_path('img/items/'.$pic.'.jpg'));
                 return $img->response('jpg');
             }
             return response("{'message':'物品ID不存在','errcode':'404'}");
