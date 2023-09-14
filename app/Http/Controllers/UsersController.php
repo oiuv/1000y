@@ -97,9 +97,9 @@ class UsersController extends Controller
             $data = array_except($data, ['password']);
         else {
             // 同步更新炎黄密码
-            YhUser::where('email', $user->email)->update([
-                'password' => $data['password'],
-            ]);
+            // YhUser::where('email', $user->email)->update([
+            //     'password' => $data['password'],
+            // ]);
         }
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 362);

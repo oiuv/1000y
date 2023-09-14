@@ -70,12 +70,12 @@ class RegisterController extends Controller
     {
         $password = str_random(6);
         // 注册炎黄账号
-        YhUser::create([
-            'account'   => $data['name'],
-            'telephone' => $data['mobile'],
-            'email'    => $data['email'],
-            'password' => $password,
-        ]);
+        // YhUser::create([
+        //     'account'   => $data['name'],
+        //     'telephone' => $data['mobile'],
+        //     'email'    => $data['email'],
+        //     'password' => $password,
+        // ]);
         // 注册神武账号
         return User::create([
             'account'   => $data['name'],

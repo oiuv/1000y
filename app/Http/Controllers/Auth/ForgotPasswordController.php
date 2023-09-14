@@ -39,8 +39,8 @@ class ForgotPasswordController extends Controller
         $this->validateEmail($request);
 
         $result1 = User::where('email', $request->email)->value('lastdate');
-        $result2 = YhUser::where('email', $request->email)->value('lastdate');
-        if ($result1 == '未登录' && $result2 == '未登录')
+        // $result2 = YhUser::where('email', $request->email)->value('lastdate');
+        if ($result1 == '未登录')
             return back()
                 ->withInput($request->only('email'))
                 ->withErrors(['email' => '该账号未激活，无法找回密码（登录游戏自动激活）']);

@@ -59,9 +59,9 @@ class ResetPasswordController extends Controller
                 'password' => $password,
             ]);
             // 更新炎黄密码
-            YhUser::where('email', $email)->update([
-                'password' => $password,
-            ]);
+            // YhUser::where('email', $email)->update([
+            //     'password' => $password,
+            // ]);
             PasswordReset::where('email', $email)->delete();
             return redirect('login')->with('status', '密码修改成功,请登录!');
         } else {
