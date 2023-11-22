@@ -38,6 +38,7 @@
 <div>破坏力：{{$item['DamageBody']?:0}}/{{$item['DamageHead']?:0}}/{{$item['DamageArm']?:0}}/{{$item['DamageLeg']?:0}}</div>
 @endif
 <div>{{$item['Recovery']?'恢复：'.$item['Recovery']:''}} {{$item['Avoid']?'躲闪：'.$item['Avoid']:''}}</div>
+<div>{{$item['Accuracy']?'准确度：'.$item['Accuracy']:''}} {{$item['KeepRecovery']?'姿势维持：'.$item['KeepRecovery']:''}}</div>
 @if($item['ArmorBody']||$item['ArmorHead']||$item['ArmorArm']||$item['ArmorLeg'])
 <div>防御力：{{$item['ArmorBody']?:0}}/{{$item['ArmorHead']?:0}}/{{$item['ArmorArm']?:0}}/{{$item['ArmorLeg']?:0}}</div>
 @endif
