@@ -5,7 +5,7 @@
 @section('content')
     <button type="button" class="btn btn-success btn-block my-3" data-toggle="tooltip" data-placement="bottom" title="排行榜每天06:00更新">{{config('app.name', '云端千年')}}玩家天梯每日排行榜(元气境界榜)</button>
     @if(isset($cache))
-        <table class="table table-hover">
+        <table class="table table-hover table-responsive">
             <thead>
             <tr>
                 <th>排位</th>

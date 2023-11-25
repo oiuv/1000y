@@ -5,7 +5,7 @@
 @section('content')
     <button type="button" class="btn btn-warning btn-block my-3">{{config('app.name', '云端千年')}}游戏怪物大全</button>
     @if(isset($cache))
-        <table class="table table-hover">
+        <table class="table table-hover table-responsive">
             <thead>
             <tr>
                 <th>#</th>
