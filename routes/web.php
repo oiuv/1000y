@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::view('/welcome', 'welcome');
 Route::get('/', 'PagesController@root')->name('root');
 
 // Auth::routes();
