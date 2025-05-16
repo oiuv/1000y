@@ -28,34 +28,34 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="mobile"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="mobile" type="number"
-                                           class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}"
-                                           name="mobile" value="{{ old('mobile') }}" required placeholder="接收密码用密保手机">
-
-                                    @if ($errors->has('mobile'))
-                                        <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('mobile') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="email"
                                        class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                            class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                           name="email" value="{{ old('email') }}" required placeholder="找回密码用密保邮箱,接收提醒">
+                                           name="email" value="{{ old('email') }}" required placeholder="查收密码用密保邮箱">
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="mobile"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Mobile') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="mobile" type="number"
+                                           class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}"
+                                           name="mobile" value="{{ old('mobile') }}" required placeholder="找回密码用密保手机">
+
+                                    @if ($errors->has('mobile'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('mobile') }}</strong>
                                     </span>
                                     @endif
                                 </div>
