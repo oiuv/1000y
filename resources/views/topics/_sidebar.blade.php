@@ -50,7 +50,7 @@
     <div class="card-header text-center">
         支持云端
     </div>
-    <img class="card-img-top" src="{{asset('uploads/images/topics/201907/21/1_1563685623_r4lKB29tNl.jpg')}}" alt="Card image cap">
+    <img class="card-img-top" src="{{asset('uploads/images/donation.jpg')}}" alt="donation image">
     <div class="card-body active-users text-center">
         <!-- <h5 class="card-title">捐助说明</h5> -->
         <!-- <p class="card-text" style="text-indent: 2em">云端千年游戏免费，如果你有一定的经济能力，也欢迎扫码支持服务器运维，注意：捐助并不会在游戏中获得任何特权。</p> -->

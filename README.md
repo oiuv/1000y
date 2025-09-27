@@ -2,7 +2,7 @@
 
 云端千年是一个怀旧千年游戏公益服务器，免费娱乐，欢迎来云端千年游戏，交流QQ群：`2887111`。你也可以使用[云端千年源码](https://github.com/oiuv/1000yTGS)架设自己的游戏服务器。
 
-项目基于Laravel 6.0开发，PHP版本要求`^7.2`，推荐版本使用`7.3.*`。
+项目基于Laravel 6.0开发，PHP版本要求`^7.2`，推荐版本使用`7.3.*|7.4.*`。
 
 网站以论坛的形式为玩家提供服务，实现了自动注册玩家账号及账号管理和密码找回等功能，可以自动从游戏源码中读取数据，展示游戏物品/怪物等资料及在线玩家排行榜。
 
@@ -76,13 +76,17 @@ ADD
 
 .env数据库相关配置完成后，运行以下指令创建网站数据表：
 
-    php artisan migrate --seed
+    php artisan migrate
+
+注意：配置`UsersTableSeeder`指定网站管理员的ID后运行`php artisan migrate --seed`
 
 ##  游戏数据缓存
 
 .env中配置`P_1000y_TGS`到你游戏TGS目录，配置`P_USER_DATA`到玩家存档目录(数据库程序目录下的Userdata目录)，运行以下指令缓存相关数据：
 
     php artisan 1000y:cache
+
+> 注意生成物品图片需要`GD`库支持，否则会`ERROR: GD Library extension not available with this PHP installation.`
 
 当数据缓存后网站即可显示内容，但玩家数据是每天更新的，如需自动更新网站排行榜，可在服务器配置一个计划任务在每天凌晨3:00以后自动执行缓存指令。
 
