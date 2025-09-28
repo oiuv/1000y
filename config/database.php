@@ -70,8 +70,8 @@ return [
             'sslmode' => 'prefer',
         ],
 
-        'sqlsrv' => [
-            'driver' => 'sqlsrv',
+        '1000y' => [
+            'driver' => env('DB_DRIVER_1000Y', 'sqlsrv'),
             'host' => env('DB_HOST_1000y', 'localhost'),
             'port' => env('DB_PORT_1000y', '1433'),
             'database' => env('DB_DATABASE_1000y', 'forge'),
@@ -81,8 +81,8 @@ return [
             'prefix' => '',
         ],
 
-        'sqlsrv_yh' => [
-            'driver' => 'sqlsrv',
+        '1000y_yh' => [
+            'driver' => env('DB_DRIVER_YH', 'sqlsrv'),
             'host' => env('DB_HOST_YH', 'localhost'),
             'port' => env('DB_PORT_YH', '1433'),
             'database' => env('DB_DATABASE_YH', 'forge'),

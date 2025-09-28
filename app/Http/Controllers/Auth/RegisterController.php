@@ -50,9 +50,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'   => ['required', 'between:5,15', 'regex:/^[A-Za-z0-9\-\_]+$/', 'unique:account1000y,account'],
-            'email'  => 'required|email|unique:account1000y',
-            'mobile' => ['required', 'regex:/^1[3-9]\d{9}$/', 'unique:account1000y,telephone'],
+            'name'   => ['required', 'between:5,15', 'regex:/^[A-Za-z0-9\-\_]+$/', 'unique:1000y.account1000y,account'],
+            'email'  => 'required|email|unique:1000y.account1000y',
+            'mobile' => ['required', 'regex:/^1[3-9]\d{9}$/', 'unique:1000y.account1000y,telephone'],
             'captcha' => 'required|captcha',
         ], [
             'captcha.captcha' => '验证码 不正确。',

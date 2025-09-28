@@ -27,8 +27,8 @@ class UserRequest extends FormRequest
     {
         return [
             'email'    => ['required','email',
-                Rule::unique('account1000y')->ignore(Auth::id())],
-            'password0' => 'required|exists:account1000y,password',
+                Rule::unique('1000y.account1000y')->ignore(Auth::id())],
+            'password0' => 'required|exists:1000y.account1000y,password',
             'password' => 'nullable|confirmed|min:6',
             'introduction' => 'max:80',
             'avatar'       => 'mimes:jpeg,bmp,png,gif',

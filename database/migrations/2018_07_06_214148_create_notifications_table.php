@@ -30,6 +30,6 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('sqlsrv')->dropIfExists('notifications');
+        Schema::dropIfExists('notifications');
     }
 }

@@ -13,7 +13,7 @@ class CreateAccount1000yTable extends Migration
      */
     public function up()
     {
-        Schema::create('account1000y', function (Blueprint $table) {
+        Schema::connection('1000y')->create('account1000y', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('account', 20)->unique();
@@ -56,6 +56,6 @@ class CreateAccount1000yTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account1000y');
+        Schema::connection('1000y')->dropIfExists('account1000y');
     }
 }

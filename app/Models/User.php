@@ -19,7 +19,7 @@ class User extends Authenticatable implements JWTSubject
     }
 
     //云端千年用户数据表配置
-    // protected $connection = 'sqlsrv';
+    protected $connection = '1000y';
     protected $table = 'account1000y';
     const CREATED_AT = 'makedate';
     protected $guarded = ['char1', 'char2', 'char3', 'char4', 'char5'];
