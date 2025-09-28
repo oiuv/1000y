@@ -26,8 +26,8 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'    => ['required','email',
-                Rule::unique('1000y.account1000y')->ignore(Auth::id())],
+            'email'    => 'required|email',
+            'telephone' => ['required', 'regex:/^1[3-9]\d{9}$/'],
             'password0' => 'required|exists:1000y.account1000y,password',
             'password' => 'nullable|confirmed|min:6',
             'introduction' => 'max:80',

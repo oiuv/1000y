@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="mobile-field">手 机</label>
-                        <input class="form-control" readonly type="number" name="telephone" id="mobile-field"
+                        <input class="form-control" type="text" name="telephone" id="mobile-field"
                                value="{{ old('telephone', $user->telephone) }}"/>
                     </div>
                     <div class="form-group">
