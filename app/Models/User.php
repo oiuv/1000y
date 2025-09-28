@@ -18,11 +18,22 @@ class User extends Authenticatable implements JWTSubject
         notify as protected laravelNotify;
     }
 
+    /**
+     * Get the database connection that should be used by the model.
+     *
+     * @return string
+     */
+    public function getConnectionName()
+    {
+        return '1000y';
+    }
+
     //云端千年用户数据表配置
     protected $connection = '1000y';
     protected $table = 'account1000y';
     const CREATED_AT = 'makedate';
     protected $guarded = ['char1', 'char2', 'char3', 'char4', 'char5'];
+    protected $fillable = ['account', 'telephone', 'email', 'password', 'introduction', 'avatar'];
 
     //protected $dateFormat = 'Y-m-d H:i:s';
 
