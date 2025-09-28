@@ -36,17 +36,26 @@ class ForgotPasswordController extends Controller
 
     public function sendResetLinkEmail(Request $request)
     {
-        $this->validateEmail($request);
+        // 验证账号和邮箱
+        $request->validate([
+            'account' => 'required|string',
+            'email' => 'required|email',
+        ]);
 
-        // $result1 = User::where('email', $request->email)->value('lastdate');
-        // $result2 = YhUser::where('email', $request->email)->value('lastdate');
-        // if ($result1 == '未登录')
-        //     return back()
-        //         ->withInput($request->only('email'))
-        //         ->withErrors(['email' => '该账号未激活，无法找回密码（登录游戏自动激活）']);
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
+        // 检查账号和邮箱是否匹配
+        $user = User::where('account', $request->account)
+                    ->where('email', $request->email)
+                    ->first();
+
+        if (!$user) {
+            return back()
+                ->withInput($request->only('account', 'email'))
+                ->withErrors(['account' => '账号和邮箱不匹配']);
+        }
+
+        // 移除激活限制，允许未激活的账号找回密码
+
+        // 发送密码重置链接
         $response = $this->broker()->sendResetLink(
             $request->only('email')
         );

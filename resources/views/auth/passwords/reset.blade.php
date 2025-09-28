@@ -8,6 +8,12 @@
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
+                    <!-- 提示用户：此操作会重置该邮箱下所有账号的密码 -->
+                    <div class="alert alert-info">
+                        <i class="fa fa-info-circle"></i>
+                        <strong>提示：</strong>此操作将重置该邮箱地址下所有关联账号的密码。
+                    </div>
+
                     <form method="POST" action="{{ route('password.request') }}">
                         @csrf
 
