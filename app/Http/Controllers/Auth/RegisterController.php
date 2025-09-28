@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name'   => ['required', 'between:5,15', 'regex:/^[A-Za-z0-9\-\_]+$/', 'unique:1000y.account1000y,account'],
             'email'  => 'required|email|unique:1000y.account1000y',
-            'mobile' => ['required', 'regex:/^1[3-9]\d{9}$/', 'unique:1000y.account1000y,telephone'],
+            'mobile' => ['required', 'regex:/^1[3-9]\d{9}$/'],
             'captcha' => 'required|captcha',
         ], [
             'captcha.captcha' => '验证码 不正确。',
