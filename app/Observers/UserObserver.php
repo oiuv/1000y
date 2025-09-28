@@ -27,7 +27,8 @@ class UserObserver
                 ]);
             } catch (NoGatewayAvailableException $exception){
                 //dd($exception->getExceptions());
-                return false;
+                // 短信发送失败不影响用户注册，只记录日志
+                logger('短信发送失败', ['error' => $exception->getMessage()]);
             }
         }
     }
