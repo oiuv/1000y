@@ -8,6 +8,10 @@
                     <div class="card-header">{{ __('Register') }}</div>
 
                     <div class="card-body">
+                        <div class="alert alert-info">
+                            <strong>注册《神武奇章》服务器账号</strong><br>
+                            如需注册《炎黄新章》服务器账号，请访问：<a href="https://1000yh.gameivy.com/register.html" target="_blank" class="alert-link">https://1000yh.gameivy.com/register.html</a>
+                        </div>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 

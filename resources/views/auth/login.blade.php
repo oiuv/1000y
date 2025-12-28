@@ -8,6 +8,10 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="alert alert-info">
+                        <strong>使用《神武奇章》服务器账号登录</strong><br>
+                        如需管理《炎黄新章》玩家账号资料，请访问：<a href="https://1000yh.gameivy.com/login.html" target="_blank" class="alert-link">https://1000yh.gameivy.com/login.html</a>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         @if (session('status'))
