@@ -112,6 +112,10 @@ return [
     'uploaded' => ':attribute 上传失败。',
     'url' => ':attribute 格式不正确。',
 
+    'date_equals' => ':attribute 必须要等于 :date。',
+    'starts_with' => ':attribute 必须以 :values 为开头。',
+    'uuid' => ':attribute 必须是有效的 UUID。',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

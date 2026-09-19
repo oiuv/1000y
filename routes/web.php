@@ -44,8 +44,6 @@ Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]
 
 Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
-Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
-
 // 针对客户端的固定链接
 Route::get('download.html', 'PagesController@download')->name('download');
 Route::get('account.html', 'PagesController@account')->name('account');

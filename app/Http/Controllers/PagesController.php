@@ -13,19 +13,6 @@ class PagesController extends Controller
         return view('pages.root');
     }
 
-    public function permissionDenied()
-    {
-        // Auth::guard('admin')->logout();
-        // 如果当前用户有权限访问后台，直接跳转访问
-        if (Auth::id() == 1) {
-            // Auth::guard('admin')->loginUsingId(Auth::id());
-            // return redirect(url(config('admin.route.prefix')), 302);
-            return abort('410', '管理后台更新中...');
-        }
-        // 否则使用视图
-        return abort('403', '你无权访问，请登录管理员账号～');
-    }
-
     public function download()
     {
         return redirect('/topics/3');
